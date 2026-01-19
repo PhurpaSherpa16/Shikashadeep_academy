@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@utility container{
+  margin-inline : auto;
+}
+
+@layer utilities{
+  button{
+    @apply
+    cursor-pointer
+    disabled:cursor-not-allowed
+  }
+
+  h1{
+    @apply
+    text-xl lg:text-4xl font-bold tracking-wide
+  }
+
+  p{
+    @apply
+    text-black/60
+  }
+
+}

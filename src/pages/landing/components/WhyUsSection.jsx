@@ -5,7 +5,7 @@ import {whyChooseUs} from '@/data/site'
 export default function WhyUsSection() {
   return (
     <div className='bg-(--offWhiteBackground)'>
-      <div className='container py-24 grid place-items-center space-y-16'>
+      <div className='container py-16 md:py-24 grid place-items-center space-y-16'>
         <div className='grid place-items-center space-y-4'>
             <Tag label={'Why choose us?'}/>
             <div className='space-y-2 grid place-items-center'>
@@ -13,7 +13,7 @@ export default function WhyUsSection() {
                 <p className='text-center'>We go beyond academics to provide a complete educational experience.</p>
             </div>
         </div>
-        <div className='grid grid-cols-2 lg:grid-cols-3 gap-16'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-16'>
             {whyChooseUs.map((item, index)=>(
                 <div key={index} className='group grid place-items-center gap-8 border 
                 py-6 px-8 rounded-lg shadow transition-all cursor-pointer

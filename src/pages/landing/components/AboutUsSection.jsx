@@ -30,7 +30,7 @@ export default function AboutUsSection() {
             {/* tag */}
             <Tag label={'About us'}/>
             <div className='w-full lg:w-5xl 2xl:w-6xl space-y-4 relative'>
-                <h1 className='text-center lg:text-left'>
+                <h1 className='text-center lg:text-left font-serif'>
                     Shikshadeep Academy is dedicated to nurturing young minds 
                     through <span className='text-(--blueDark)'>Quality Education</span>, strong values, and a 
                     supportive learning environment.

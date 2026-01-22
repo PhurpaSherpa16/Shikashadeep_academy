@@ -13,7 +13,7 @@
 
   h1{
     @apply
-    text-xl lg:text-4xl font-bold tracking-wide
+    text-xl md:text-2xl lg:text-4xl font-bold tracking-wide
   }
 
   p{

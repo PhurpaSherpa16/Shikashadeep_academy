@@ -5,7 +5,7 @@ import HeroImage from '../../../assets/facilities_hero_image.jpg'
 
 export default function FacilitiesSection() {
   return (
-    <div className='bg-(--offWhiteBackground) pb-16'>
+    <div className='bg-(--offWhiteBackground) pb-20'>
       <div className='container lg:py-8 grid grid-cols-12 px-4 lg:px-0'>
         <div className='hidden lg:flex col-span-6 h-60 lg:h-full relative overflow-hidden w-fit group rounded-lg'>
             <img src={HeroImage} alt="Hero image"
@@ -17,7 +17,7 @@ export default function FacilitiesSection() {
             <div className='space-y-4 grid place-items-center lg:place-items-start'>
                 <Tag label={'facilities'}/>
                 <div className='space-y-2'>
-                    <h1 className='text-center lg:text-left'>
+                    <h1 className='text-center lg:text-left font-serif'>
                         {FacilitiesContentHeroText.before}
                         <span className='text-(--blueDark)'> {FacilitiesContentHeroText.highlight} </span>
                         {FacilitiesContentHeroText.after}
@@ -27,7 +27,7 @@ export default function FacilitiesSection() {
                     </p>
                 </div>
             </div>
-            <div className='flex flex-col lg:flex-row gap-8 2xl:gap-12'>
+            <div className='flex flex-col md:flex-row gap-8 2xl:gap-12'>
                 {FacilitiesContentForCard.map((item, index)=>(
                     <div key={index} className='space-y-4
                     grid place-items-center lg:place-items-start'>

@@ -12,14 +12,14 @@ export default function ProgrameSection() {
             {
                 programme.map((item, index)=>(
                 <div key={index} className='grid grid-cols-12 gap-4 lg:gap-16 items-center'>
-                    <div className='col-span-12 lg:col-span-6 space-y-4 lg:space-y-8 grid place-items-center lg:place-items-start'>
+                    <div className='col-span-12 md:col-span-6 space-y-4 lg:space-y-8 grid place-items-center lg:place-items-start'>
                         <Tag label={`Programme 0${index+1}`}/>
                         <div className='grid gap-2 lg:gap-4'>
                             <span className='font-medium text-center lg:text-left'>{item.label}</span>
                             <p className='text-center lg:text-justify'>{item.description}</p>
                         </div>
                     </div>
-                    <div  className='relative col-span-12 lg:col-span-6 h-80 2xl:h-100 w-full group overflow-hidden rounded-lg'>
+                    <div  className='relative col-span-12 md:col-span-6 h-80 2xl:h-100 w-full group overflow-hidden rounded-lg'>
                         <img src={item.image} alt={item.label} className='h-full w-full object-top 
                         object-cover group-hover:scale-103 transition-all relative duration-300'/>
                         <div className='h-full w-full bg-(--blueDark)/10 absolute inset-0 group-hover:hidden transition-all duration-300'/>

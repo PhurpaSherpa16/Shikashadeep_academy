@@ -82,7 +82,7 @@ export default function MenuList() {
         {/* Gallery */}
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuLink asChild>
-            <Link to="/home" className="font-medium">Admission</Link>
+            <Link to="/home" className="font-medium">Gallery</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
 

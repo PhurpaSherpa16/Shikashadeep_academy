@@ -5,11 +5,11 @@ import {whyChooseUs} from '@/data/site'
 export default function WhyUsSection() {
   return (
     <div className='bg-(--offWhiteBackground)'>
-      <div className='container py-16 md:py-24 grid place-items-center space-y-16'>
+      <div className='container py-16 md:py-24 grid place-items-center space-y-12'>
         <div className='grid place-items-center space-y-4'>
             <Tag label={'Why choose us?'}/>
             <div className='space-y-2 grid place-items-center'>
-                <h1 className='text-center lg:w-xl'>What Makes <span className='text-(--blueDark)'>Shikshadeep</span> Special?</h1>
+                <h1 className='text-center lg:w-xl font-serif'>What Makes <span className='text-(--blueDark)'>Shikshadeep</span> Special?</h1>
                 <p className='text-center'>We go beyond academics to provide a complete educational experience.</p>
             </div>
         </div>

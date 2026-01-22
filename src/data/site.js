@@ -12,11 +12,26 @@ import g3 from '../assets/g3.jpg'
 import g4 from '../assets/g4.jpg'
 import g5 from '../assets/g5.jpg'
 import g6 from '../assets/g6.jpg'
-import { PiPresentationChartLight } from "react-icons/pi";
+import blog1 from '../assets/blog1.jpg'
+import blog2 from '../assets/blog2.jpg'
+import blog3 from '../assets/blog3.jpg'
+import f1 from '../assets/f1.jpeg'
+import f2 from '../assets/f2.jpeg'
+import f3 from '../assets/f3.jpeg'
+import f4 from '../assets/f4.jpeg'
+import f5 from '../assets/f5.jpeg'
+import f7 from '../assets/f7.jpeg'
+import t1 from '../assets/t1.jpg'
+import t2 from '../assets/t2.jpeg'
+import t3 from '../assets/t3.jpg'
+import t4 from '../assets/t4.jpg'
+import footerLogo from '../assets/footer_logo.png'
+import { PiPresentationChartLight, PiTiktokLogo } from "react-icons/pi";
 import { MdBiotech } from "react-icons/md";
 import { PiBusBold } from "react-icons/pi";
 import { FaKitchenSet } from "react-icons/fa6";
-
+import { FiFacebook } from "react-icons/fi";
+import { AiOutlineYoutube } from "react-icons/ai";
 
 export const quickContacts = [
     {
@@ -28,14 +43,14 @@ export const quickContacts = [
     {
         icon : Mail,
         label : "Email",
-        value : "info@school.com",
-        href : "mailto:info@school.com",
+        value : "shikshadeepacademy123@gmail.com ",
+        href : "mailto:shikshadeepacademy123@gmail.com",
     },
 ]
 
 export const Location ={   
         icon : MapPin,
-        city : "Ithari",
+        city : "Itahari",
         ward : 16,
         district : "Sunsari",
         provience : 1,
@@ -164,4 +179,229 @@ export const whyChooseUs = [
 ]
 
 export const images = [g1, g2, g3, g4, g5, g6]
+
+export const LatestBLogNews = [
+  {
+    tag : 'Community',
+    date : 'Aug 5, 2025',
+    readingTime : 5,
+    label : 'Building Strong Learning Foundations in Early Years',
+    description : 'Our early education program focuses on core skills through interactive activities that prepare children for long-term academic success.',
+    image : blog1,
+    color : '#1800ad'
+  },
+  {
+    tag : 'Culture',
+    date : 'Sept 21, 2025',
+    readingTime : 3,
+    label : 'Children celebrating Krishna Ashtimi with Pride and Joy',
+    description : 'Students took part in artistic endeavors centered around Lord Krishna, cultural performances, talks, and bearing ideals.',
+    image : blog2,
+    color : 'red'
+  },
+  {
+    tag : 'Achivement',
+    date : 'July 12, 2025',
+    readingTime : 6,
+    label : 'Shikshadeep Students Shine in Inter-School Competitions',
+    description : 'Our students earned top positions across academic and sports events, reflecting their dedication, teamwork.',
+    image : blog3,
+    color : '#015513'
+  },
+]
+
+export const principalWords = {
+  itroduction: "At Shikshadeep Academy, we focus on nurturing confident learners with strong values and academic excellence.",
+  description: "Our dedicated teachers and supportive environment help every child grow, explore their potential, and prepare for a bright future. Together with parents, we strive to build responsible, skilled, and successful individuals.",
+  name : "Mrs. Sikaha Pandit"
+}
+
+export const footerData = {
+  school : {
+    title : "SHIKSHADEEP",
+    subtitle : "Academy",
+    desctiption : "Illuminating minds and building futures through quality education in Itahari, Nepal.",
+    icon : footerLogo,
+    href : '/'
+  },
+  socialIcons : [
+    {
+      label: 'facebook',
+      href : 'https://www.facebook.com/shikshadeepacademy.itahari',
+      icon : FiFacebook
+    },
+    {
+      label: 'youtube',
+      href : '/',
+      icon : AiOutlineYoutube
+    },
+    {
+      label: 'tiktok',
+      href : '/',
+      icon : PiTiktokLogo
+    },
+    {
+      label: 'mail',
+      href : 'shikshadeepacademy123@gmail.com ',
+      icon : Mail
+    },
+  ],
+  quickLinks : [
+    {
+      label : 'Home',
+      href : '/'
+    },
+    {
+      label : 'About us',
+      href : '/about_us'
+    },
+    {
+      label : 'Programs',
+      href : '/programs'
+    },
+    {
+      label : 'Gallery',
+      href : '/gallery'
+    },
+    {
+      label : 'Blog & News',
+      href : '/blog'
+    },
+  ],
+  programs:[
+    {
+      label : 'Early Years',
+      href : '/'
+    },
+    {
+      label : 'Elementry Years',
+      href : '/'
+    },
+    {
+      label : 'Secondary School',
+      href : '/'
+    },
+    {
+      label : 'Tution',
+      href : '/'
+    },
+  ],
+  contact : [
+    {
+      icon: MapPin,
+      label: "Address",
+      value: "Itahari-16, Sunsari, Province No. 1, Nepal",
+      href: "https://www.google.com/maps/search/26.665353,+87.242814?entry=tts&g_ep=EgoyMDI2MDExMy4wIPu8ASoASAFQAw%3D%3D&skid=77d1773f-9bf6-4bec-9ae6-44a15938504f",
+      type: "link",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+977 9834536787",
+      href: "tel:+9779834536787",
+      type: "tel",
+    },
+    {
+      icon: Mail,
+      label: "Admission Email",
+      value: "shikshadeepacademy123@gmail.com ",
+      href: "mailto:shikshadeepacademy123@gmail.com ",
+      type: "email",
+    },
+    {
+      icon: Mail,
+      label: "Admission Email",
+      value: "admission@shikshadeep.edu.np",
+      href: "mailto:admission@shikshadeep.edu.np",
+      type: "email",
+    },
+  ],
+
+  officehours : [
+    'Sun - Thursday: 8:00 AM - 4:00 PM',
+    'Friday: 9:00 AM - 1:00 PM'
+  ],
+  terms : [
+    '© 2024 Shikshadeep Academy. All rights reserved.',
+    'Privacy Policy || Terms and services'
+  ]
+}
+
+export const teachers = [
+  {
+    name: "Dr. Ram Prasad Aryal",
+    designation: "Principal",
+    qualification: "Ph.D in Education",
+    experience: 15,
+    image: f1,
+    quote: "Education is the most powerful tool to shape the future."
+  },
+  {
+    name: "Ms. Sita Sharma",
+    designation: "Math Teacher",
+    qualification: "M.Sc in Mathematics",
+    experience: 10,
+    image: f2,
+    quote: "I believe every student can excel if given the right guidance."
+  },
+  {
+    name: "Mr. Ramesh Thapa",
+    designation: "Science Teacher",
+    qualification: "M.Sc in Physics",
+    experience: 8,
+    image: f4,
+    quote: "Science is about curiosity — I encourage students to explore."
+  },
+  {
+    name: "Ms. Anjali Koirala",
+    designation: "English Teacher",
+    qualification: "M.A in English Literature",
+    experience: 12,
+    image: f5,
+    quote: "Language is the key to understanding the world."
+  },
+  {
+    name: "Mr. Binod Gurung",
+    designation: "Social Studies Teacher",
+    qualification: "M.A in History",
+    experience: 9,
+    image: f7,
+    quote: "Learning from the past helps us build a better future."
+  },
+  {
+    name: "Ms. Shyam Shrestha",
+    designation: "Computer Science Teacher",
+    qualification: "B.Tech in Computer Engineering",
+    experience: 7,
+    image: f3,
+    quote: "Coding opens up a world of endless possibilities."
+  }
+];
+
+export const testimonials = [
+  {
+    name: "Aarav Sharma",
+    class: "Grade 9",
+    image: t1,
+    message: "The teachers are very supportive and always help me when I face difficulties. I enjoy learning here every day."
+  },
+  {
+    name: "Nisha Karki",
+    class: "Grade 10",
+    image: t2,
+    message: "My confidence has improved a lot since joining this school. The environment is friendly and motivating."
+  },
+  {
+    name: "Rohan Thapa",
+    class: "Grade 8",
+    image: t3,
+    message: "I love the activities and projects we do in class. It makes learning fun and interesting."
+  },
+  {
+    name: "Clare Johnson",
+    class: "Grade 10",
+    image: t4,
+    message: "I enjoy the projects we do in class, group sudy. It makes learning fun and interesting."
+  }
+]
 

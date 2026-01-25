@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
+import { MoveRight, RefreshCcw } from "lucide-react"
 
 export default function InqueryForm() {
     const [formData, setFormData] = useState({
@@ -97,15 +98,17 @@ export default function InqueryForm() {
                             />
                         </div>
                         <div className='md:col-span-2 space-y-4 space-x-4'>
-                            <Button type="submit" className='w-full md:w-auto bg-(--blueDark) hover:bg-blue-900 text-white px-8 h-12 text-lg'>
+                            <Button type="submit" className='group w-full md:w-auto bg-(--blueDark) hover:bg-blue-900 text-white 
+                            px-8'>
                                 Send Message
+                                <MoveRight className="h-4 w-4 group-hover:-rotate-45 transition-all duration-300"/>
                             </Button>
-                            <Button
-                                type="button"
+                            <Button type="button"
                                 onClick={handleReset}
-                                className='w-full md:w-auto bg-white text-(--blueDark) border px-8 h-12 text-lg hover:border-(--blueDark) hover:bg-white'
-                            >
+                                className='group w-full md:w-auto bg-white text-(--blueDark) border px-8
+                                hover:border-(--blueDark) hover:bg-white'>
                                 Reset
+                                 <RefreshCcw className="transition-transform duration-300 group-hover:rotate-180 origin-center" />
                             </Button>
                         </div>
                     </form>

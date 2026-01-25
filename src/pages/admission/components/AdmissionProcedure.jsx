@@ -8,7 +8,7 @@ export default function AdmissionProcedure() {
         <div id='admission' className='container px-4 lg:px-0 pb-16'>
                 <div className='grid place-items-center py-8 pt-16'>
                     <div className='grid place-items-center space-y-2'>
-                        <h1 className='font-serif'>{admissionData.label}</h1>
+                        <h1 className='font-serif'>{admissionData.label} <span className='text-(--blueDark)'>{admissionData.year}</span></h1>
                         <p className='w-full lg:w-sm text-center'>{admissionData.description}</p>
                     </div>
                 </div>

@@ -12,8 +12,8 @@ export default function Faculty() {
   return (
      <div className='grid place-items-center'>   
       <div className="custom_paddings space-y-16">
-        <div className='space-y-2'>
-          <h1 className='font-serif'>{faculty_data.label}</h1>
+        <div className='space-y-8'>
+          <h1 className='font-serif text-center text-(--blueDark)'>{faculty_data.label}</h1>
           <p className='text-justify'>{faculty_data.description}</p>
         </div>
         <div className='grid gap-8'>

@@ -34,7 +34,7 @@ export default function AboutUs() {
                     {/* Left Sticky Sidebar */}
                     <div className='lg:col-span-3 hidden lg:block'>
                         <div className='sticky top-24 space-y-8'>
-                            <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-6'>
+                            <div className='bg-white rounded-lg shadow-sm border border-gray-100 p-6'>
                                 <h3 className='font-serif text-xl font-bold text-gray-900 mb-4 px-2'>
                                     Contents
                                 </h3>
@@ -46,7 +46,7 @@ export default function AboutUs() {
                                                 to={link.href}
                                                 key={index}
                                                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                                className={`group flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300 font-medium ${isActive
+                                                className={`group flex items-center justify-between px-4 py-3 rounded transition-all duration-300 font-medium ${isActive
                                                         ? 'bg-(--blueDark) text-white shadow-md'
                                                         : 'text-gray-600 hover:bg-gray-50 hover:text-(--blueDark)'
                                                     }`}
@@ -60,13 +60,16 @@ export default function AboutUs() {
                             </div>
 
                             {/* Optional: Add a call to action or contact info in sidebar */}
-                            <div className='bg-(--blueDark) rounded-2xl p-6 text-white text-center space-y-4 hidden lg:block'>
+                            <div className='bg-(--blueDark) rounded-lg p-6 text-white text-center space-y-4 hidden lg:block'>
                                 <h4 className='font-bold text-lg'>Have Questions?</h4>
                                 <p className='text-blue-100 text-sm'>
                                     Contact us to learn more about our programs and admissions.
                                 </p>
-                                <Button asChild variant="secondary" className='w-full'>
-                                    <Link to='/contact'>Contact Us</Link>
+                                <Button asChild variant="secondary" className='group w-full rounded-full! hover:bg-white hover:text-(--blueDark) hover:border-(--blueDark)'>
+                                    <Link to='/contact'>
+                                        Contact Us
+                                        <MoveRight className="h-4 w-4 group-hover:-rotate-45 transition-all duration-300"/>
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
@@ -76,26 +79,26 @@ export default function AboutUs() {
                     <div className='lg:col-span-9 space-y-12 h-full'>
                         <div className='bg-white overflow-hidden'>
                             {url === 'introduction' ? <Introduction /> :
-                                url === 'mission' ? <Mission /> :
-                                    url === 'faculty' ? <Faculty /> :
-                                        url === 'board_members' ? <BoardMembers /> :
-                                            url === 'values' ? <Values /> :
-                                                url === 'facilities' ? <Facilties /> :
-                                                    <div className='flex flex-col items-center justify-center py-20 px-4 text-center space-y-6'>
-                                                        <div className='w-64 md:w-80'>
-                                                            <Lottie animationData={panda} loop={true} />
-                                                        </div>
-                                                        <div className='space-y-4'>
-                                                            <h3 className='text-2xl font-bold text-gray-900'>Section Not Found</h3>
-                                                            <p className='text-gray-500'>The content you are looking for doesn't exist or has been moved.</p>
-                                                            <Button asChild className='rounded-full px-8'>
-                                                                <Link to='/about_us#introduction' className='flex items-center gap-2'>
-                                                                    Go to Overview
-                                                                    <MoveRight className="h-4 w-4" />
-                                                                </Link>
-                                                            </Button>
-                                                        </div>
-                                                    </div>}
+                            url === 'mission' ? <Mission /> :
+                            url === 'faculty' ? <Faculty /> :
+                            url === 'board_members' ? <BoardMembers /> :
+                            url === 'values' ? <Values /> :
+                            url === 'facilities' ? <Facilties /> :
+                            <div className='flex flex-col items-center justify-center py-20 px-4 text-center space-y-6'>
+                                <div className='w-64 md:w-80'>
+                                    <Lottie animationData={panda} loop={true} />
+                                </div>
+                                <div className='space-y-4'>
+                                    <h3 className='text-2xl font-bold text-gray-900'>Section Not Found</h3>
+                                    <p className='text-gray-500'>The content you are looking for doesn't exist or has been moved.</p>
+                                    <Button asChild className='rounded-full px-8'>
+                                        <Link to='/about_us#introduction' className='flex items-center gap-2'>
+                                            Go to Overview
+                                            <MoveRight className="h-4 w-4" />
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </div>}
                         </div>
                     </div>
                 </div>

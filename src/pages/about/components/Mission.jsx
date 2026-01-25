@@ -7,7 +7,7 @@ export default function Mission() {
     <div className="custom_paddings space-y-16">
       <div className="space-y-8">
         {/* Title */}
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{mission_data.label}</h1>
+        <h1 className="font-serif text-center text-(--blueDark)">{mission_data.label}</h1>
 
         {/* Image + Description */}
         <div className="">

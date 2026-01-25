@@ -6,7 +6,7 @@ export default function Introduction() {
     <div className='grid place-items-center'>
         <div className='custom_paddings space-y-16'>
             <div className='space-y-8'>
-            <h1 className='font-serif'>
+            <h1 className='font-serif text-center text-(--blueDark)'>
             Shikshadeep Academy  
             </h1>
             {school_data.school_introduction.map((intro, index)=>(

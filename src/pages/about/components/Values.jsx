@@ -8,8 +8,8 @@ export default function Values() {
     <div className='grid place-items-center'>
       <div className="custom_paddings space-y-16">
           {/* Header */}
-          <div className='space-y-4 max-w-4xl mx-auto text-center'>
-            <h1 className='font-serif text-3xl md:text-4xl'>{values_data.label}</h1>
+          <div className='space-y-8 max-w-4xl mx-auto text-center'>
+            <h1 className='font-serif text-center text-(--blueDark)'>{values_data.label}</h1>
             <p className='text-lg text-muted-foreground text-justify md:text-center max-w-2xl mx-auto'>
               {values_data.description}
           </p>

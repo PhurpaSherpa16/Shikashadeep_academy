@@ -64,15 +64,17 @@ export default function MenuList() {
                 {latestBlog.slice(0,5).map((item, index) => (
                   <ListItem
                     key={index}
-                    title={item.label}
-                    href={'/'}
-                  >
-                    {item.description}
-                  </ListItem>
+                    title={item.label}>
+                      <Link to={`/blog_news?q=${item.label}`}>
+                        {item.description}
+                      </Link>
+                  </ListItem> 
                 ))}
                 <div className=" flex items-end justify-end w-full">
-                  <ListItem href={'/'}>
-                    View All Blogs & News
+                  <ListItem asChild>
+                    <Link to="/blog_news">
+                      View All Blogs & News
+                    </Link>
                   </ListItem>
                 </div>
               </ul>
@@ -89,13 +91,13 @@ export default function MenuList() {
             <ul className="grid gap-2 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
-                  <a
+                  <Link
                     className="from-muted/50 to-muted flex h-full w-full flex-col 
                     relative p-0!
                     justify-end rounded-md bg-linear-to-b no-underline outline-hidden 
                     transition-all duration-200 
                     select-none focus:shadow-md border"
-                    href="/"
+                    to="/gallery?q=Culture"
                   >
                     <img src={latestPhotos[0].image} alt="image" className="absolute z-0
                     h-full w-full inset-0 object-center object-cover"/>
@@ -107,19 +109,25 @@ export default function MenuList() {
                         {latestPhotos[0].caption}
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 </NavigationMenuLink>
               </li>
               <ListItem href="/docs" title={latestPhotos[1].label}>
-                {latestPhotos[1].caption}
+                <Link to="/gallery?q=yoga">
+                  {latestPhotos[1].caption}
+                </Link>
               </ListItem>
               <ListItem href="/docs/installation" title={latestPhotos[2].label}>
-                {latestPhotos[2].caption}
+                <Link to="/gallery?q=farewell">
+                  {latestPhotos[2].caption}
+                </Link>
               </ListItem>
               <div className="flex items-end justify-end">
-                  <ListItem href="/docs/primitives/typography">
-                  View All Photos
-                </ListItem>
+                  <ListItem asChild>
+                    <Link to="/gallery">
+                      View All Photos
+                    </Link>
+                  </ListItem>
               </div>
             </ul>
           </NavigationMenuContent>

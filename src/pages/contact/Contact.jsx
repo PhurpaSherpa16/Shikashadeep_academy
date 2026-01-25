@@ -17,7 +17,7 @@ export default function Contact() {
 
                 <div className='container mx-auto px-4 text-center space-y-4 relative z-10'>
                     <h1 className='font-serif text-4xl md:text-5xl font-bold'>Get in Touch</h1>
-                    <p className='text-xl text-blue-100 max-w-2xl mx-auto'>
+                    <p className='text-xl text-white/60 max-w-2xl mx-auto'>
                         We'd love to hear from you. Reach out to us for any queries, admissions, or feedback.
                     </p>
                 </div>

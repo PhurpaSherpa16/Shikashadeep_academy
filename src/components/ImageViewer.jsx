@@ -1,101 +1,138 @@
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
-export default function ImageViewer({ src, onClose, setCurrentIndex, gallery, currentIndex}) {
-    const slideRef = useRef(null)
+export default function ImageViewer({ src, onClose, setCurrentIndex, gallery, currentIndex }) {
+    const slideRef = useRef(null);
     const scrollAmount = 100;
+
+    // Keyboard controls
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") onClose();
+            if (e.key === "ArrowLeft") onHandlePrev();
+            if (e.key === "ArrowRight") onHandleNext();
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [currentIndex]); // Re-attach when index changes so handlers use fresh state
 
     const onHandlePrev = () => {
         setCurrentIndex((prevIndex) => {
-            if (prevIndex - 1 < 0) {
-            // jump to last slide
-            slideRef.current.scrollTo({
-                left: slideRef.current.scrollWidth,
-                behavior: "smooth",
-            });
-            return gallery.length - 1;
-            } else {
-            slideRef.current.scrollBy({
-                left: -scrollAmount,
-                behavior: "smooth",
-            });
-            return prevIndex - 1;
+            const newIndex = prevIndex - 1 < 0 ? gallery.length - 1 : prevIndex - 1;
+            // Ensure thumbnail is visible
+            if (slideRef.current) {
+                const thumb = slideRef.current.children[newIndex];
+                if (thumb) thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             }
+            return newIndex;
         });
     };
 
     const onHandleNext = () => {
         setCurrentIndex((prevIndex) => {
-            if (prevIndex + 1 >= gallery.length) {
-            // jump to first slide
-            slideRef.current.scrollTo({
-                left: 0,
-                behavior: "smooth",
-            });
-            return 0;
-            } else {
-            slideRef.current.scrollBy({
-                left: scrollAmount,
-                behavior: "smooth",
-            });
-            return prevIndex + 1;
+            const newIndex = prevIndex + 1 >= gallery.length ? 0 : prevIndex + 1;
+            // Ensure thumbnail is visible
+            if (slideRef.current) {
+                const thumb = slideRef.current.children[newIndex];
+                if (thumb) thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             }
+            return newIndex;
         });
     };
 
     if (!src) return null;
 
-  return (
-    <div className="fixed h-screen inset-0 z-50 bg-black/80 backdrop-blur-lg flex items-center justify-center px-4">
-      <button onClick={onClose} className="absolute top-5 right-5 text-white 
-        hover:scale-110 transition">
-        <X size={32} className="hover:text-red-500 relative z-10"/>
-      </button>
-        <div className="text-white/60 absolute z-20 flex justify-between w-full px-4 lg:px-16">
-            <button className='bg-white/40 hover:bg-white/80 rounded-full p-2'
-            onClick={onHandlePrev}>
-                <ChevronLeft className="hover:text-black size-8"/>
-            </button>
-            <button className='bg-white/40 hover:bg-white/80 rounded-full p-2'
-            onClick={onHandleNext}>
-                <ChevronRight className="hover:text-black size-8"/>
-            </button>
-        </div>
-        <div className="flex gap-8">
-            <div className="grid col-span-8 gap-8 py-8">
-                <div className="grid place-items-center">
-                    <img src={src} alt="preview" className="relative h-[50vh] md:h-[60vh] lg:h-[80vh] w-fit rounded shadow-xl object-top object-cover"/>
-                </div>
-                <div className="bottom-8 w-screen px-4 2xl:px-32 grid md:flex gap-4  justify-between ">
-                    <div className="text-white relative py-2 px-4 bg-black/60 backdrop-blur rounded-lg 
-                    grid overflow-hidden">
-                        <div>
-                            <h2 className="text-sm md:text-xl">{gallery[currentIndex].label}</h2>
-                            <p className="text-sm text-white/60">{gallery[currentIndex].caption}</p>
-                            <div className="flex gap-1 ">{gallery[currentIndex].tag.map((item, index)=>(
-                                <button key={index} className="text-white/60 hover:text-white
-                                text-sm md:">#{item}</button>
-                            ))}</div>
-                        </div>
+    return (
+        <div className="fixed inset-0 h-screen z-100 bg-black/60 backdrop-blur-xl flex flex-col items-center justify-center p-4">
+            {/* Header Controls */}
+            <div className="absolute top-0 inset-x-0 p-6 flex justify-between items-center z-50">
+                <div className="flex items-center gap-3">
+                    <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                        <span className="text-white/80 text-sm font-medium">
+                            {currentIndex + 1} / {gallery.length}
+                        </span>
                     </div>
-                    <div ref={slideRef} className="flex gap-3 shadow-lg shadow-black/60 bg-black/60 p-2 rounded-lg 
-                    md:w-md lg:w-lg snap-x scrollbar-hide
-                    overflow-x-scroll">
-                        {gallery.map((item, index)=>(
-                            <button key={index} onClick={()=>{
-                                setCurrentIndex(index)
-                            }} 
-                            className="relative group rounded overflow-hidden shrink-0">
-                                <img src={item.image} alt="image" className="size-20 rounded object-top object-cover relative"/>
-                                <div className={`absolute inset-0
-                                ${currentIndex === index ? 'bg-transparent' : 'bg-black/40 group-hover:bg-transparent' }
-                                `} />
+                </div>
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={onClose}
+                        className="p-3 bg-white/10 hover:bg-red-500/20 text-white hover:text-red-500 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group"
+                    >
+                        <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
+                    </button>
+                </div>
+            </div>
+
+            {/* Central Image and Controls */}
+            <div className="relative w-full max-w-7xl flex bottom-20 md:bottom-10 items-center justify-center group h-full">
+                {/* Desktop Side Nav Buttons */}
+
+                <div className="relative h-[85vh] w-full flex items-center justify-center py-20 lg:py-32">
+                    <img src={src} alt="preview"
+                        className="relative z-50 size-200 object-contain animate-in fade-in zoom-in-95 
+                        duration-300"/>
+                        <div className="absolute flex justify-between w-full z-100">
+                            <button onClick={onHandlePrev}
+                                className="left-4 z-50 p-4 bg-white/5 hover:bg-white/20 text-white 
+                                rounded-full backdrop-blur-xl border border-white/10 transition-all duration-300 ">
+                                <ChevronLeft size={32} />
                             </button>
-                        ))}
+
+                            <button onClick={onHandleNext}
+                                className="right-4 z-50 p-4 bg-white/5 hover:bg-white/20 text-white 
+                                rounded-full backdrop-blur-xl border border-white/10 transition-all duration-300">
+                                <ChevronRight size={32} />
+                            </button>
+                        </div>
+                </div>
+            </div>
+
+            {/* Premium Integrated Bottom Bar */}
+            <div className="absolute bottom-0 inset-x-0 z-50">
+                <div className="bg-linear-to-t from-black/90 to-transparent pt-20 pb-10 px-6">
+                    <div className="container mx-auto">
+                        <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-end justify-between w-full">
+                            {/* Image Info */}
+                            <div className="max-w-2xl space-y-4 animate-in slide-in-from-bottom-4 duration-500">
+                                <div className="space-y-1">
+                                    <h2 className="text-white text-2xl lg:text-3xl font-serif font-bold 
+                                    text-center lg:text-left
+                                    tracking-wide">
+                                        {gallery[currentIndex].label}
+                                    </h2>
+                                    <p className="text-white/60 text-lg leading-relaxed text-center lg:text-left">
+                                        {gallery[currentIndex].caption}
+                                    </p>
+                                </div>
+                                <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+                                    {gallery[currentIndex].tag.map((tag, i) => (
+                                        <span key={i} className="text-xs uppercase tracking-widest text-white/60">
+                                            #{tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Thumbnail Stream */}
+                            <div className="w-full lg:w-2xl flex justify-center lg:justify-end">
+                                <div ref={slideRef} className="flex gap-3 overflow-x-auto scrollbar-hide py-2 px-1 snap-x"
+                                style={{ scrollbarWidth: "none" }}>
+                                    {gallery.map((item, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => setCurrentIndex(index)}
+                                            className={`relative shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all duration-300 snap-center
+                                                ${currentIndex === index ? 'border-(--blueDark) scale-110 shadow-lg shadow-blue-500/20' : 'border-white/10 opacity-50 hover:opacity-100 hover:border-white/30'}`}
+                                        >
+                                            <img src={item.image} alt="thumb" className="w-full h-full object-cover" />
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-  );
+    );
 }

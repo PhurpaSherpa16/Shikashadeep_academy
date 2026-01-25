@@ -1,6 +1,7 @@
 
 export const admissionData = {
-    label : 'Admission Open For 2083 - 2084',
+    label : 'Admission Open For',
+    year : '2083 - 2084',
     description : "Join a nurturing environment where students grow academically and personally.",
 
     process :[

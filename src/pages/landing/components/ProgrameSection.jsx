@@ -7,7 +7,7 @@ import Wave from "@/assets/wave2.svg"
 export default function ProgrameSection() {
     return (
         <div className='relative'>
-            <div className='container py-12 lg:py-24 2xl:py-32 relative'>
+            <div className='container py-16 lg:py-24 relative'>
                 <div className='space-y-12 lg:space-y-8 px-4 relative'>
                     <div className='space-y-12'>
                         {

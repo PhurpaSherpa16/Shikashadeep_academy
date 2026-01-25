@@ -45,7 +45,7 @@ export default function ImageViewer({ src, onClose, setCurrentIndex, gallery, cu
     return (
         <div className="fixed inset-0 h-screen z-100 bg-black/60 backdrop-blur-xl flex flex-col items-center justify-center p-4">
             {/* Header Controls */}
-            <div className="absolute top-0 inset-x-0 p-6 flex justify-between items-center z-50">
+            <div className="absolute top-0 inset-x-0 p-6 flex justify-between items-center z-100">
                 <div className="flex items-center gap-3">
                     <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
                         <span className="text-white/80 text-sm font-medium">
@@ -53,7 +53,7 @@ export default function ImageViewer({ src, onClose, setCurrentIndex, gallery, cu
                         </span>
                     </div>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 relative z-100">
                     <button
                         onClick={onClose}
                         className="p-3 bg-white/10 hover:bg-red-500/20 text-white hover:text-red-500 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group"

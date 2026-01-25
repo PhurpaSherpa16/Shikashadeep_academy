@@ -7,40 +7,45 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { Link } from "react-router-dom"
-import {QuickBlogNews} from '../../data/blogNews'
+import { blogs } from '../../data/blogNews'
+import {gallery} from '../../data/gallery'
+
 
 export default function MenuList() {
+
+  const latestBlog = [...blogs].sort((a,b)=>new Date(b.date) - new Date(a.date))
+  const latestPhotos = gallery.filter(item => item.highlight).sort((a,b)=>new Date(b.date) - new Date(a.date)).slice(0,4)
+
+
   return (
     <NavigationMenu>
-      <NavigationMenuList className="flex-wrap hidden lg:inline-flex">
+      <NavigationMenuList className="flex-wrap">
+        <NavigationMenuItem className="hidden md:block">
+          <NavigationMenuLink asChild>
+            <Link to="/" className="font-medium">Home</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+
+        {/* Admission */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Admissions</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
+            <ul className="w-60">
                 <NavigationMenuLink asChild>
-                  <a
-                    className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-4 no-underline outline-hidden transition-all duration-200 select-none focus:shadow-md md:p-6"
-                    href="/"
-                  >
-                    <div className="mb-2 text-lg font-medium sm:mt-4">
-                      shadcn/ui
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-tight">
-                      Beautifully designed components built with Tailwind CSS.
-                    </p>
-                  </a>
+                  <Link to="/admission" className="flex-row items-center gap-2">
+                    Admission Procedure
+                  </Link>
                 </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
+                <NavigationMenuLink asChild>
+                  <Link to="/admission#notice" className="flex-row items-center gap-2">
+                    Notice
+                  </Link>
+                </NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link to="/admission#application-form" className="flex-row items-center gap-2">
+                    Application
+                  </Link>
+                </NavigationMenuLink>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -56,47 +61,81 @@ export default function MenuList() {
               </p>
 
               <ul className="grid gap-2 sm:w-100 md:w-125 md:grid-cols-2 lg:w-150">
-                {QuickBlogNews.map((component) => (
+                {latestBlog.slice(0,5).map((item, index) => (
                   <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
+                    key={index}
+                    title={item.label}
+                    href={'/'}
                   >
-                    {component.description}
+                    {item.description}
                   </ListItem>
                 ))}
+                <div className=" flex items-end justify-end w-full">
+                  <ListItem href={'/'}>
+                    View All Blogs & News
+                  </ListItem>
+                </div>
               </ul>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
-
-
-
-        {/* Admission */}
-        <NavigationMenuItem className="hidden md:block">
-          <NavigationMenuLink asChild>
-            <Link to="/home" className="font-medium">Admission</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
+        
 
         {/* Gallery */}
         <NavigationMenuItem className="hidden md:block">
-          <NavigationMenuLink asChild>
-            <Link to="/home" className="font-medium">Gallery</Link>
-          </NavigationMenuLink>
+          <NavigationMenuTrigger>Gallery
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-2 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <a
+                    className="from-muted/50 to-muted flex h-full w-full flex-col 
+                    relative p-0!
+                    justify-end rounded-md bg-linear-to-b no-underline outline-hidden 
+                    transition-all duration-200 
+                    select-none focus:shadow-md border"
+                    href="/"
+                  >
+                    <img src={latestPhotos[0].image} alt="image" className="absolute z-0
+                    h-full w-full inset-0 object-center object-cover"/>
+                    <div className="relative z-10 p-4 w-full bg-linear-to-t from-black via-50% to-transparent">
+                      <h2 className=" mb-2 text-lg text-white font-medium sm:mt-4">
+                        {latestPhotos[0].label}
+                      </h2>
+                      <p className=" text-white/60 text-sm leading-tight">
+                        {latestPhotos[0].caption}
+                      </p>
+                    </div>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <ListItem href="/docs" title={latestPhotos[1].label}>
+                {latestPhotos[1].caption}
+              </ListItem>
+              <ListItem href="/docs/installation" title={latestPhotos[2].label}>
+                {latestPhotos[2].caption}
+              </ListItem>
+              <div className="flex items-end justify-end">
+                  <ListItem href="/docs/primitives/typography">
+                  View All Photos
+                </ListItem>
+              </div>
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
 
         {/* 5th menu item */}
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuLink asChild>
-            <Link to="/home" className="font-medium">About Us</Link>
+            <Link to="/about_us#introduction" className="font-medium">About Us</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
 
         
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuLink asChild>
-            <Link to="/home" className="font-medium">Contact</Link>
+            <Link to="/contact" className="font-medium">Contact</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
 

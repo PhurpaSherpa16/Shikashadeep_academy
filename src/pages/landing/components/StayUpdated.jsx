@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button'
-import { Download, Mail, MoveRight } from 'lucide-react'
+import { Mail, MoveRight } from 'lucide-react'
 
 
 export default function StayUpdated() {

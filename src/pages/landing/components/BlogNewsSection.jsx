@@ -3,7 +3,14 @@ import { LatestBLogNews } from '../../../data/site'
 import { CalendarDays, MoveRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
+import { blogs } from '../../../data/blogNews'
+
+
+
 export default function BlogNewsSection() {
+
+    const latestBlog = [...blogs].sort((a,b)=>new Date(b.date) - new Date(a.date))
+
   return (
     <div className='bg-(--offWhiteBackground)'>
         <div className='container grid px-4 lg:px-0 py-16'>
@@ -13,7 +20,7 @@ export default function BlogNewsSection() {
                     <p className='text-center'>Stay updated with school activities, achievements, and important announcements.</p>
                 </div>
                 <div className='grid place-items-center lg:flex gap-8 2xl:gap-12'>
-                    { LatestBLogNews.map((item, index)=>(
+                    { latestBlog.slice(0,3).map((item, index)=>(
                         <div key={index} className='group relative md:w-md lg:w-sm  2xl:w-md border gap-8 h-full rounded-lg overflow-hidden
                         hover:shadow-2xl hover:scale-97 hover:-translate-y-3 transition-all duration-300'>
                             <div className='w-full h-60 lg:h-80 2xl:h-100 relative overflow-hidden'>

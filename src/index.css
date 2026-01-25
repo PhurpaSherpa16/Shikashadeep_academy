@@ -21,4 +21,15 @@
     text-black/60
   }
 
+  .custom_hover_effect{
+      @apply
+      hover:shadow-xl transition-all duration-300
+  }
+
+  .custom_paddings{
+    @apply
+    md:w-sm xl:w-2xl 2xl:w-3xl
+  } 
+
 }
+

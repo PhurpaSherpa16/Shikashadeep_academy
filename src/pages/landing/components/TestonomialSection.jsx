@@ -4,6 +4,8 @@ import { testimonials } from '../../../data/site'
 import {Download, MoveRight, Quote } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useBreakPoints } from '../../../utils/Responsive'
+import { IoIosStar } from "react-icons/io";
+
 
 export default function TestonomialSection() {
 
@@ -36,8 +38,14 @@ export default function TestonomialSection() {
                                     {item.message}
                                     </p>
                                 </div>
-                                <div>
-                                    <p className='text-white text-right'>- {item.name} <br /> {item.class}</p>
+                                <div className='flex items-center justify-between'>
+                                    <p className='text-white'>{item.name} <br /> {item.class}</p>
+                                    <div className='flex gap-2'>
+                                        {Array.from({length : 5}, (_, i) =>(
+                                            <IoIosStar kernelMatrix={i} key={i}
+                                            className={`size-4 ${i < item.rating ? "text-yellow-300" : "text-white/60"}`}/>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>

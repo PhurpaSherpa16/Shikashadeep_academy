@@ -2,6 +2,7 @@ import Wave from "@/assets/hero_wave.svg"
 import HeroBackground from '@/assets/hero_background.jpg'
 import { Button } from '@/components/ui/button'
 import { MoveRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function HeroSection() {
   return (
@@ -15,7 +16,7 @@ export default function HeroSection() {
       <div className='container absolute lg:pb-20 z-10 flex items-center justify-center'>
         <div className='space-y-8'>
           <div className='flex flex-col items-center space-y-2'>
-            <h1 className='text-white font-serif text-2xl lg:text-4xl tracking-wide'>SHIKADEEP ACADEMY</h1>
+            <h1 className='text-white font-serif text-2xl lg:text-4xl tracking-wide'>SHIKSADEEP ACADEMY</h1>
             <div className='text-sm backdrop-blur w-fit px-8 border border-gray-100/30 rounded-full flex items-center justify-center
             text-(--secondaryTextWhite)'>
               <span>• Excellence in Education Since 2012</span>
@@ -32,9 +33,12 @@ export default function HeroSection() {
             <div className="grid lg:flex gap-4">
               <Button className="group bg-white text-(--blueDark)
                   hover:text-white px-12! cursor-pointer
-                  shadow-md hover:shadow-lg transition-all flex items-center gap-2 py-3 rounded-full">
-                Admission Open
-                <MoveRight className="transition-transform duration-300 group-hover:-rotate-45 origin-center" />
+                  shadow-md hover:shadow-lg transition-all flex items-center gap-2 py-3 rounded-full"
+                  asChild>
+                  <Link to='/admission'>
+                    Admission Open
+                    <MoveRight className="transition-transform duration-300 group-hover:-rotate-45 origin-center" />
+                  </Link>
               </Button>
               <Button variant='outline'
               className="backdrop-blur bg-transparent text-white cursor-pointer transition-all rounded-full px-12! hover:text-(--blueDark)">

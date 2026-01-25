@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import AboutUsSection from "./landing/components/AboutUsSection";
 import BlogNewsSection from "./landing/components/BlogNewsSection";
 import BlueBelt from "./landing/components/BlueBelt";
@@ -13,6 +14,7 @@ import TestonomialSection from "./landing/components/TestonomialSection";
 import WhyUsSection from "./landing/components/WhyUsSection";
 
 export default function Index() {
+  useEffect(() => {window.scrollTo(0, 0)},[])
   return (
     <div>
       <HeroSection/>

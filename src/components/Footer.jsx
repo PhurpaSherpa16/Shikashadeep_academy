@@ -31,7 +31,7 @@ export default function Footer() {
                         </div>
 
                         {/* Social icons */}
-                        <div className='flex items-center justify-center lg:justify-start gap-4 '>
+                        <div className='flex items-center justify-center w-full lg:justify-start gap-4 '>
                             {footerData?.socialIcons?.map((item,index)=>(
                                 <div key={index} className='bg-white/20 w-fit
                                 border border-gray-200/30 p-2 rounded-full group

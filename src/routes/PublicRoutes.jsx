@@ -3,12 +3,18 @@ import { Route, Routes } from 'react-router-dom'
 import PublicLayout from '../layout/PublicLayout'
 import PageNotFound from '../pages/PageNotFound'
 import Index from '../pages/Index'
+import Admission from '../pages/admission/Admission'
+import AboutUs from '../pages/about/AboutUs'
+import Contact from '../pages/contact/Contact'
 
 export default function PublicRoutes() {
   return (
     <Routes>
         <Route path='/' element={<PublicLayout/>}>
             <Route index element={<Index/>}/>
+            <Route path='/admission' element={<Admission/>}/>
+            <Route path='/about_us' element={<AboutUs/>}/>
+            <Route path='/contact' element={<Contact/>}/>
         </Route>
         <Route path='*' element={<PageNotFound/>}/>
     </Routes>

@@ -4,7 +4,11 @@ import {MoveRight, Quote } from 'lucide-react'
 import { SlBadge } from 'react-icons/sl'
 import { Button } from '@/components/ui/button'
 import Tag from './Tag'
-
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
 
 export default function OurFacultySection() {
   return (
@@ -20,9 +24,9 @@ export default function OurFacultySection() {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative'>
                 {teachers.map((item, index)=>(
-                    <div className='group relative p-4 border rounded-lg px-8 grid place-items-center overflow-hidden
+                    <div key={index} className='group relative p-4 border rounded-lg px-8 grid place-items-center overflow-hidden
                     hover:shadow-xl transition-all hover:-translate-y-2'>
-                        <div key={index} className=' grid place-items-center'>
+                        <div className=' grid place-items-center'>
                             <div className='h-fit w-fit overflow-hidden rounded-full'>
                                 <img src={item.image} alt="image" 
                                 className='size-24 object-center object-cover' />
@@ -42,15 +46,23 @@ export default function OurFacultySection() {
                         </div>
 
                         {/* hover card */}
-                        <div className='bg-(--blueDark) h-full w-full absolute z-10 p-8 text-justify
+                        <div className='bg-(--blueDark) space-y-2 h-full w-full absolute z-10 p-8 text-justify
                         opacity-0 group-hover:opacity-100 transition-all grid place-items-center'>
                             <div className='relative flex'>
-                                <Quote className='text-white size-4 absolute rotate-180'/>
-                                <p className='text-white indent-6'>
+                                <Quote className='text-white/60 size-4 absolute rotate-180'/>
+                                <p className='text-white/60 indent-6'>
                                     {item.quote}{item.quote}
                                 </p>
                             </div>
-                            <p className='text-right text-white w-full'>-{item.name}</p>
+                            <div className='w-full'>
+                                <p className='text-right text-white w-full'>-{item.name}</p>
+                                <div className='flex justify-end w-full'>
+                                    <Avatar>
+                                        <AvatarImage src={item.image} alt="image" className="grayscale object-center object-cover"/>
+                                        <AvatarFallback>{item.name.split(' ')[1].slice(0,1)}</AvatarFallback>
+                                    </Avatar>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 ))}

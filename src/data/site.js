@@ -383,25 +383,31 @@ export const testimonials = [
     name: "Aarav Sharma",
     class: "Grade 9",
     image: t1,
+    rating : 4,
     message: "The teachers are very supportive and always help me when I face difficulties. I enjoy learning here every day."
   },
   {
     name: "Nisha Karki",
     class: "Grade 10",
     image: t2,
+    rating : 3,
     message: "My confidence has improved a lot since joining this school. The environment is friendly and motivating."
   },
   {
     name: "Rohan Thapa",
     class: "Grade 8",
     image: t3,
+    rating : 5,
     message: "I love the activities and projects we do in class. It makes learning fun and interesting."
   },
   {
     name: "Clare Johnson",
     class: "Grade 10",
     image: t4,
+    rating : 4,
     message: "I enjoy the projects we do in class, group sudy. It makes learning fun and interesting."
   }
 ]
+
+
 

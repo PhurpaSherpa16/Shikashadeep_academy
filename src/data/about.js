@@ -27,14 +27,16 @@ import eighteen from '../assets/gallery/faculty/teachers/18.jpeg'
 import board1 from '../assets/gallery/faculty/board/1.jpeg'
 import board2 from '../assets/gallery/faculty/board/2.jpeg'
 import board3 from '../assets/gallery/faculty/board/3.jpeg'
+import defaultImage from '../assets/gallery/faculty/board/default.png'
 
 export const school_data = {
     school_introduction: [
-        "Shikshadeep offers a comprehensive educational program from early years to secondary level, designed to help students become confident, independent, and thoughtful learners with strong academic foundations and essential life skills.",
-        "It provides a dynamic and engaging curriculum that is student-centered and responsive to individual learning needs. Along with strong academic instruction, our core curriculum is enriched through activities in arts, technology, physical education, and social development, ensuring balanced growth in both knowledge and character.",
-        "Our school community promotes values of respect, cooperation, and responsibility. We place strong emphasis on teamwork, communication skills, and positive relationships among students, teachers, and families, creating a supportive and inclusive learning environment."
+        "Shikshadeep Academy is a well-established educational institution founded in 2063 B.S. in the heart of Itahari Sub-Metropolitan City, Sunsari. Established with the motto of providing quality education for all, the school has been continuously committed to academic excellence and holistic student development. The school is located in the southern part of Balgram, offering a peaceful and student-friendly learning environment.",
+        "The school is equipped with modern and well-maintained infrastructure, including a principal’s office, accountant’s office, staff room, seminar hall, science laboratory, computer laboratory, 17 classrooms, four restrooms, a canteen, and a library. To ensure safety and convenience, the school also provides safe drinking water facilities, a well-designed stage and entrance gate, and two school buses.",
+        "Shikshadeep Academy currently serves more than 500 students from pre-primary to secondary levels, guided by a team of highly qualified, experienced, and dedicated teachers. Supported by 25 teaching staff and 7 non-teaching staff, the school maintains a friendly, disciplined, and inclusive environment where students feel safe, motivated, and encouraged to achieve their full potential.",
+        "At Shikshadeep Academy, we believe education goes beyond textbooks. We focus on nurturing knowledge, character, discipline, and confidence, preparing students to become responsible and capable citizens of the future.",
     ],
-    history: "Established in 2010, Shikshadeep Academy has grown from a small learning community into a school serving over 400 students, with small class sizes that allow personal attention.",
+    history: "Established in 2063 B.S., Shikshadeep Academy has grown from a small learning community into a school serving over 500 students, with small class sizes that allow personal attention.",
     school_image: schoolimage
 }
 
@@ -58,8 +60,8 @@ export const about_us = [
         image: faculty,
     },
     {
-        label: 'Board Members',
-        href: '/about_us#board_members',
+        label: 'Advisory Members',
+        href: '/about_us#advisory_members',
         description: "Experienced leaders guiding the school's vision and strategic direction while promoting values of respect, cooperation, and responsibility among all stakeholders.",
         image: board,
     },
@@ -255,23 +257,23 @@ export const faculty_data = {
 }
 
 export const boardMember = {
-    label: "Meet Our Board Members",
-    description: "Shikshadeep Academy's board members provide strategic guidance, uphold our mission, and ensure the highest standards in education and student development.",
+    label: "Advisory Members",
+    description: "Shikshadeep Academy's advisory members provide strategic guidance, uphold our mission, and ensure the highest standards in education and student development.",
     members: [
         {
-            names: "Chadav V. Kumar",
+            names: "Bishnu Bahadur Basnet",
             some_words: "Dedicated to fostering excellence and building a brighter future for every student.",
-            image: board1,
+            image: defaultImage,
         },
         {
-            names: "Goli Mar",
+            names: "Yubraj Kaphle",
             some_words: "Committed to creating an inclusive environment where all students can thrive.",
-            image: board2,
+            image: defaultImage,
         },
         {
-            names: "Bam C. Nepal",
+            names: "Rup Narayan",
             some_words: "Supporting innovation and quality education that shapes responsible global citizens.",
-            image: board3,
+            image: defaultImage,
         },
     ]
 }

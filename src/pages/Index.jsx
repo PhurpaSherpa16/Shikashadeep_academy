@@ -1,35 +1,35 @@
 import { useEffect } from "react";
-import AboutUsSection from "./landing/components/AboutUsSection";
-import BlogNewsSection from "./landing/components/BlogNewsSection";
-import BlueBelt from "./landing/components/BlueBelt";
-import FacilitiesSection from "./landing/components/FacilitiesSection";
-import GallerySection from "./landing/components/GallerySection";
-import HeroSection from "./landing/components/HeroSection";
-import OurFacultySection from "./landing/components/OurFacultySection";
-import PrincipleWordSection from "./landing/components/PrincipleWordSection";
-import ProgrameSection from "./landing/components/ProgrameSection";
-import StayUpdated from "./landing/components/StayUpdated";
-import SummuryBelt from "./landing/components/SummuryBelt";
-import TestonomialSection from "./landing/components/TestonomialSection";
-import WhyUsSection from "./landing/components/WhyUsSection";
+import AboutUsSection from "./public/landing/components/AboutUsSection";
+import BlogNewsSection from "./public/landing/components/BlogNewsSection";
+import BlueBelt from "./public/landing/components/BlueBelt";
+import FacilitiesSection from "./public/landing/components/FacilitiesSection";
+import GallerySection from "./public/landing/components/GallerySection";
+import HeroSection from "./public/landing/components/HeroSection";
+import OurFacultySection from "./public/landing/components/OurFacultySection";
+import PrincipleWordSection from "./public/landing/components/PrincipleWordSection";
+import ProgrameSection from "./public/landing/components/ProgrameSection";
+import StayUpdated from "./public/landing/components/StayUpdated";
+import SummuryBelt from "./public/landing/components/SummuryBelt";
+import TestonomialSection from "./public/landing/components/TestonomialSection";
+import WhyUsSection from "./public/landing/components/WhyUsSection";
 
 export default function Index() {
-  useEffect(() => {window.scrollTo(0, 0)},[])
+  useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div>
-      <HeroSection/>
-      <SummuryBelt/>
-      <AboutUsSection/>
-      <FacilitiesSection/>
-      <BlueBelt/>
-      <ProgrameSection/>
-      <WhyUsSection/>
-      <GallerySection/>
-      <BlogNewsSection/>
+      <HeroSection />
+      <SummuryBelt />
+      <AboutUsSection />
+      <FacilitiesSection />
+      <BlueBelt />
+      <ProgrameSection />
+      <WhyUsSection />
+      <GallerySection />
+      <BlogNewsSection />
       {/* <PrincipleWordSection/> */}
-      <OurFacultySection/>
-      <TestonomialSection/>
-      <StayUpdated/>
+      <OurFacultySection />
+      <TestonomialSection />
+      <StayUpdated />
     </div>
   )
 }

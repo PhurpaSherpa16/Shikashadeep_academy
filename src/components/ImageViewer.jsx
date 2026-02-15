@@ -40,7 +40,7 @@ export default function ImageViewer({ src, onClose, setCurrentIndex, gallery, cu
         });
     };
 
-    if (!src) return null;
+    if (!src) return null
 
     return (
         <div className="fixed inset-0 h-screen z-100 bg-black/60 backdrop-blur-xl flex flex-col items-center justify-center p-4">

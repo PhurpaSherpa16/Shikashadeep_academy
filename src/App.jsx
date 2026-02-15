@@ -1,14 +1,12 @@
-import { Button } from "@/components/ui/button"
 import { BrowserRouter } from "react-router-dom"
-import PublicRoutes from "./routes/PublicRoutes"
-import { useEffect } from "react"
+import MainRoutes from "./routes/MainRoutes"
 
 function App() {
   return (
     <div className="overflow-hidden min-h-screen">
       <BrowserRouter>
-      <PublicRoutes/>
-    </BrowserRouter>
+        <MainRoutes/>
+      </BrowserRouter>
     </div>
   )
 }

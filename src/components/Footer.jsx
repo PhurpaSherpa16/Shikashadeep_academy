@@ -54,7 +54,7 @@ export default function Footer() {
                                     <span className='font-medium text-white font-serif'>Quick Links</span>
                                     <div className='grid'>
                                         {footerData?.quickLinks?.map((item,index)=>(
-                                        <Link to={item.href} target='_blank' key={index}
+                                        <Link to={item.href} key={index}
                                         className='hover:text-white hover:underline transition-all'>
                                             {item.label}
                                         </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
                                     <span className='font-medium text-white font-serif'>Programs</span>
                                     <div className='grid'>
                                         {footerData?.programs?.map((item,index)=>(
-                                        <Link to={item.href} target='_blank' key={index}
+                                        <Link to={item.href} key={index}
                                         className='hover:text-white hover:underline transition-all'>
                                             {item.label}
                                         </Link>

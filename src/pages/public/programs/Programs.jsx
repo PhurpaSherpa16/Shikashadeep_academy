@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import Programme1 from '@/assets/programe1.jpg'
-import Programme2 from '@/assets/programe2.jpg'
-import Programme3 from '@/assets/programe3.jpg'
-import blog3 from '@/assets/blog3.jpg' // Using for Tuition
+import Programme1 from '../../../assets/programe1.jpg'
+import Programme2 from '../../../assets/programe2.jpg'
+import Programme3 from '../../../assets/programe3.jpg'
+import blog3 from '../../../assets/blog3.jpg' // Using for Tuition
 import {MoveRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 

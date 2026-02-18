@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { Image, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 import Posts from "./components/posts";
 import { useGetAllImages } from "@/hooks/gallery/useGetAllImages"
@@ -7,6 +7,7 @@ import ImageFeed from "./components/ImageFeed";
 import GalleryInsights from "./components/GalleryInsights";
 import { useFeaturedAlbums } from "../../../hooks/gallery/useFeaturedAlbums";
 import UploadImagesAlbum from "./components/UploadImagesAlbum";
+import DashboardHeader from "../../../components/DashboardHeader";
 
 
 export default function Gallery() {
@@ -19,13 +20,27 @@ export default function Gallery() {
     const { featuredLoading, featuredError, featuredData, albumsResponse } = useFeaturedAlbums()
     const featuredAlbums = featuredData?.gallery_post || []
 
+    const imageProps = {
+        images,
+        loading,
+        error,
+        page: imagePage,
+        totalPages: data?.total_pages || 1,
+        onPageChange: setImagePage,
+        imagesResponse,
+        setPage: setImagePage
+    }
+
+    const headerProps ={
+        title: "Gallery Dashboard",
+        description: "Manage your images and albums",
+        icon: <Image className="text-blue-dark size-4"/>
+    }
+
     return (
-        <div className="relative p-4 md:p-8 space-y-8 w-full lg:max-w-6xl 2xl:max-w-[1600px] mx-auto pb-24">
+        <div className="dashboard_layout animate_in">
             {/* Dashboard Header */}
-            <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-serif font-bold text-gray-800">Gallery Dashboard</h1>
-                <p className="text-gray-500 text-sm">Manage your images and albums</p>
-            </div>
+            <DashboardHeader {...headerProps}/>
 
             {/* Album Carousel */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
@@ -38,16 +53,7 @@ export default function Gallery() {
                 <div className="col-span-2 flex flex-col-reverse gap-6 h-full">
                     {/* Left Column - Images */}
                     <div className="lg:col-span-2 h-full">
-                        <ImageFeed
-                            images={images}
-                            loading={loading}
-                            error={error}
-                            page={imagePage}
-                            imagesResponse={imagesResponse}
-                            setPage={setImagePage}
-                            totalPages={data?.total_pages || 1}
-                            onPageChange={setImagePage}
-                        />
+                        <ImageFeed {...imageProps}/>
                     </div>
                 </div>
 

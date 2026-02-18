@@ -1,14 +1,6 @@
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-/**
- * Premium Loading component with smooth animations.
- * @param {Object} props
- * @param {string} [props.className] - Additional classes for the container
- * @param {string} [props.text] - Optional loading text
- * @param {boolean} [props.fullPage] - Whether to show as a full-screen overlay
- * @param {boolean} [props.container] - Whether to center within a container
- */
 export default function Loading({ className, text = "Loading...", fullPage = false, container = false }) {
     const content = (
         <div className={cn(
@@ -33,7 +25,7 @@ export default function Loading({ className, text = "Loading...", fullPage = fal
                 </p>
             )}
         </div>
-    );
+    )
 
     if (fullPage) {
         return (

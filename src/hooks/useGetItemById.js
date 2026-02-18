@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import getById from "../api/getItemById"
 
 export default function useGetItemById(id, from) {
@@ -6,9 +6,10 @@ export default function useGetItemById(id, from) {
     const [error, setError] = useState("")
     const [data, setData] = useState(null)
 
-    const getItemById = async () => {
+    const getItemById = useCallback(async () => {
         try {
             setLoading(true)
+            setError("") 
             const response = await getById(id, from)
             setData(response)
         } catch (error) {
@@ -16,6 +17,7 @@ export default function useGetItemById(id, from) {
         } finally {
             setLoading(false)
         }
-    }
-    return {getItemById, loading, error, data}
+    }, [id, from]) 
+
+    return { getItemById, loading, error, data }
 }

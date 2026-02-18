@@ -26,6 +26,21 @@ import EditAlbum from '@/pages/private/gallery/EditAlbum'
 import ProgramDashboard from '../pages/private/program/ProgramDashboard'
 import ProgramLayout from '../pages/private/program/ProgramLayout'
 import NewProgramAdd from '../pages/private/program/NewProgramAdd'
+import UpdateProgram from '../pages/private/program/UpdateProgram'
+
+import FacultyDashboard from '../pages/private/faculty/FacultyDashboard'
+import FacultyLayout from '../pages/private/faculty/FacultyLayout'
+import AddNewTeacher from '../pages/private/faculty/AddNewTeacher'
+import UpdateTeacher from '../pages/private/faculty/UpdateTeacher'
+import AddNewAdvisory from '../pages/private/faculty/AddNewAdvisory'
+import UpdateAdvisory from '../pages/private/faculty/UpdateAdvisory'
+import AdmissionLayout from '../pages/private/admission/AdmissionLayout'
+import AdmissionDashBoard from '../pages/private/admission/AdmissionDashBoard'
+import QueriesLayout from '../pages/private/queries/QueriesLayout'
+import QueriesDashboard from '../pages/private/queries/QuriesDashboard'
+import CareerDashboard from '../pages/private/career/CareerDashboard'
+import CareerLayout from '../pages/private/career/CareerLayout'
+import PostingJob from '../pages/private/career/PostingJob'
 
 export default function MainRoutes() {
   return (
@@ -50,14 +65,36 @@ export default function MainRoutes() {
         <Route path='/admin/blogs/new' element={<CreateBlog />} />
         <Route path='/admin/blogs/update/:blogId' element={<UpdateBlog />} />
 
-        <Route path='/admin/gallery' element={<ManageGallery/>}/>
-        <Route path='/admin/gallery/new' element={<ImageUpload/>}/>
-        <Route path='/admin/gallery/albums' element={<Albums/>}/>
-        <Route path='/admin/gallery/edit/:id' element={<EditAlbum/>}/>
+        <Route path='/admin/gallery' element={<ManageGallery />} />
+        <Route path='/admin/gallery/new' element={<ImageUpload />} />
+        <Route path='/admin/gallery/albums' element={<Albums />} />
+        <Route path='/admin/gallery/edit/:id' element={<EditAlbum />} />
 
-        <Route path='/admin/programs' element={<ProgramLayout/>}>
-          <Route index element={<ProgramDashboard/>}/>
-          <Route path='new' element={<NewProgramAdd/>}/>
+        <Route path='/admin/programs' element={<ProgramLayout />}>
+          <Route index element={<ProgramDashboard />} />
+          <Route path='new' element={<NewProgramAdd />} />
+          <Route path='update/:id' element={<UpdateProgram />} />
+        </Route>
+
+        <Route path='/admin/faculty' element={<FacultyLayout />}>
+          <Route index element={<FacultyDashboard />} />
+          <Route path='new' element={<AddNewTeacher />} />
+          <Route path='update/:id' element={<UpdateTeacher />} />
+          <Route path='advisory/new' element={<AddNewAdvisory />} />
+          <Route path='advisory/update/:id' element={<UpdateAdvisory />} />
+        </Route>
+
+        <Route path='/admin/admissions' element={<AdmissionLayout />}>
+          <Route index element={<AdmissionDashBoard />}/>
+        </Route>
+
+        <Route path='/admin/queries' element={<QueriesLayout />}>
+          <Route index element={<QueriesDashboard/>}/>
+        </Route>
+
+        <Route path='/admin/career' element={<CareerLayout/>}>
+          <Route index element={<CareerDashboard/>}/>
+          <Route path='new' element={<PostingJob/>}/>
         </Route>
 
       </Route>

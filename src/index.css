@@ -46,6 +46,13 @@
     @apply
     animate-in fade-in duration-500
   }
+
+  .dashboard_layout{
+    @apply
+    relative p-4 md:p-8 space-y-8 w-full mx-auto pb-24
+  }
+
+
 }
 
 :root {

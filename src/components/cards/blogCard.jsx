@@ -12,7 +12,9 @@ export default function BlogCard({ blog, handleDeleteBlog, idDeleting }) {
     }
 
     return (
-        <div className='group relative w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-xl transition-all duration-300 flex flex-col h-full min-h-[420px]'>
+        <div className='group relative w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-xl transition-all 
+        duration-300 flex flex-col h-full min-h-[420px]
+        min-w-[280px] sm:min-w-[350px] md:min-w-[400px]'>
             <div className='relative h-48 overflow-hidden shrink-0'>
                 <img src={blog.thumbnail_url} alt={blog.title} className='size-full object-cover object-center
                 transition-transform duration-500 group-hover:scale-105' />

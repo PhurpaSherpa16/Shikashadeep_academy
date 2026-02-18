@@ -1,4 +1,4 @@
-import API_URL from "../api.js";
+import API_URL from "../api";
 
 export const logout = async () => {
     try {

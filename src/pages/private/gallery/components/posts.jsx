@@ -1,4 +1,4 @@
-import { Loader2, MoveRight } from "lucide-react"
+import { MoveRight } from "lucide-react"
 import { Carousel } from "@/components/Carousel"
 import { Link } from "react-router-dom"
 import AlbumsCard from "../../../../components/AlbumsCard"
@@ -6,6 +6,7 @@ import { useState } from "react"
 import useDeleteById from "../../../../hooks/useDeleteById"
 import { usehandleDeleteWithPagination } from "../../../../hooks/useHandleDeleteWithPagination"
 import NoDataAvailable from "../../../../components/NoDataAvailable"
+import AlbumSkeleton from "../../../../components/skeletons/AlbumSkeleton"
 
 export default function Posts({ albums, albumLoading, albumError, albumsResponse }) {
     const [deletingId, setDeletingId] = useState(null)
@@ -35,8 +36,10 @@ export default function Posts({ albums, albumLoading, albumError, albumsResponse
                 </Link>
             </div>
             <Carousel content={albumLoading ? (
-                <div className="flex items-center justify-center h-64">
-                    <p className="flex gap-2">Loading...<Loader2 className="size-8 animate-spin" /></p>
+                <div className="flex gap-8 py-4">
+                    {Array.from({length:5}).map((i) => (
+                        <AlbumSkeleton key={i} />
+                    ))}
                 </div>
             ) : albumError ? (
                 <div className="flex items-center justify-center h-64">

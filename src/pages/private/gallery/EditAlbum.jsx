@@ -9,7 +9,7 @@ import { useUpdateAlbum } from "../../../hooks/gallery/useUpdateAlbum"
 export default function EditAlbum() {
     const { id } = useParams()
     const navigate = useNavigate()
-    const { getItemById, loading: fetching, error: fetchError, data } = useGetItemById(id, 'gallery/post')
+    const { getItemById, loading, error: fetchError, data } = useGetItemById(id, 'gallery/post')
     const { handleUpdateAlbum, loading: updating, error: updateError, success } = useUpdateAlbum()
 
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function EditAlbum() {
                 title={<>Update <span className="text-blue-dark">Album</span></>}
                 description="Keep your gallery up to date. Review the information and make the necessary changes below."
             />
-            {fetching ? (
+            {loading ? (
                 <Loading container={true} text="Fetching album details..." />
             ) : fetchError ? (
                 <div className="bg-red-50 border border-red-100 p-8 rounded-2xl text-center">

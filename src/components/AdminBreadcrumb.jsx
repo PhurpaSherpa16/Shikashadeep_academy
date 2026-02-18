@@ -11,7 +11,7 @@ import { Home } from "lucide-react"
 
 export default function AdminBreadcrumb() {
     const location = useLocation()
-    const pathnames = location.pathname.split("/").filter((x) => x)
+    const pathnames = location.pathname.split("/").slice(1,4).filter((x) => x)
 
     return (
         <Breadcrumb>

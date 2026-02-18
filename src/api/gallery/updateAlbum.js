@@ -1,15 +1,6 @@
 import API_URL from "../api";
-
-/**
- * Updates a gallery album by ID.
- * @param {string} id - The album ID.
- * @param {Object} formData - The form data containing title, caption, tags, and images.
- * @returns {Promise<Object>} The API response.
- */
 export default async function updateAlbumById(id, formData) {
     const url = `${API_URL}/gallery/post_update/${id}`;
-    
-    // Create FormData object for multipart/form-data submission
     const data = new FormData();
     data.append('title', formData.title);
     data.append('caption', formData.caption);

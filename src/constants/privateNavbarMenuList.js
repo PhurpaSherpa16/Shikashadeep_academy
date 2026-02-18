@@ -8,7 +8,8 @@ import {
     MessageSquare,
     Mail,
     Settings,
-    School
+    School,
+    AppWindowMac
 } from 'lucide-react';
 
 export const privateNavbarMenuList = [
@@ -21,14 +22,14 @@ export const privateNavbarMenuList = [
                 icon: GraduationCap
             },
             {
-                title: "Admissions",
-                path: "/admin/admissions",
-                icon: School
-            },
-            {
                 title: "Our Faculty",
                 path: "/admin/faculty",
                 icon: Users
+            },
+            {
+                title: "Admissions",
+                path: "/admin/admissions",
+                icon: School
             },
         ]
     },
@@ -59,6 +60,11 @@ export const privateNavbarMenuList = [
                 title: "Queries",
                 path: "/admin/queries",
                 icon: MessageSquare
+            },
+            {
+                title: "Career",
+                path: "/admin/career",
+                icon: AppWindowMac
             },
             {
                 title: "Subscribers",

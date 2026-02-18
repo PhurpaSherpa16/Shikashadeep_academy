@@ -14,7 +14,6 @@ export default function useDeleteById() {
             setData(response)
             return response
         } catch (error) {
-            console.log('Error in useDeleteById hook:', error);
             const msg = error.message || 'Failed to delete, please try later.'
             setError(msg)
             throw error
@@ -23,5 +22,5 @@ export default function useDeleteById() {
         }
     }
 
-    return { deleteByIdHook, loading, error, data }
+    return { deleteByIdHook, loading, error, data, setError }
 }

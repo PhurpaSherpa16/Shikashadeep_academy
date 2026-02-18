@@ -7,6 +7,7 @@ import { usehandleDeleteWithPagination } from "../../../hooks/useHandleDeleteWit
 import Loading from "../../../components/Loading"
 import { Link } from "react-router-dom"
 import NoDataAvailable from "../../../components/NoDataAvailable"
+import AlbumSkeleton from "../../../components/skeletons/AlbumSkeleton"
 
 export default function Albums() {
     const { albumLoading, albumError, albumsData, page: albumPage, setPage: setAlbumPage, albumsResponse } = useGetAllAlbums()
@@ -30,8 +31,10 @@ export default function Albums() {
 
             <div className="grid h-[calc(100vh-300px)]">
                 {albumLoading ? (
-                    <div className="flex items-center justify-center w-full h-full">
-                        <Loading container={true} text="Fetching albums..." />
+                    <div className="flex gap-8 py-4 flex-wrap">
+                        {Array.from({length: 10}).map((_, i) => (
+                            <AlbumSkeleton key={i} />
+                        ))}
                     </div>
                 ) : albumError ? (
                     <div className="flex items-center justify-center py-20">

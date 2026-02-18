@@ -1,14 +1,23 @@
-import HeaderForForms from "../../../components/HeaderForForms"
+import HeaderForForms from "../../../components/HeaderForForms";
+import ProgramForm from "../../../components/forms/programForm";
+import usePostProgram from "../../../hooks/programs/usePostProgram";
 
-export default function NewProgramAdd(){
-    return(
-        <div className="animate-in p-8 fade-in slide-in-from-bottom-4 duration-500">
-            <HeaderForForms title="Add New Program"/>
-            <div className="p-8">
-                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-                    <p>New Program Add</p>
-                </div>
-            </div>
+
+export default function NewProgramAdd() {
+    
+    const {postNewProgram, loading, error} = usePostProgram()
+
+    const handleSubmit = async (formData) => {
+        return await postNewProgram(formData)
+    }
+
+    return (
+        <div className="p-8 space-y-10 animate-in fade-in duration-500">
+            {/* Header */}
+            <HeaderForForms
+                title={<>Add a <span className="text-blue-dark">New Program</span></>}
+                description="Expand our academic offerings. Fill in the details below to register a new program in the system."/>
+            <ProgramForm onSubmit={handleSubmit} loading={loading} error={error}/>
         </div>
-    )
+    );
 }

@@ -13,8 +13,8 @@ export const useGetAllItem = (from) => {
         setError(null)
         try {
             const response = await getAllItems(from, page, limit)
-            console.log(response);
             setData(response?.data)
+            return response?.data
         } catch (error) {
             console.log('Error', error);
             setError(error.message || "Something went wrong")
@@ -28,5 +28,5 @@ export const useGetAllItem = (from) => {
         getAllItemResponse(from)
     },[getAllItemResponse, from])
 
-    return { itemLoading: loading, itemError: error, itemsData: data, getAllItemResponse, page, limit, setPage, setLimit}
+    return { loading, error, data, getAllItemResponse, page, limit, setPage, setLimit}
 }

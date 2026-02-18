@@ -7,6 +7,7 @@ import AdminBreadcrumb from '../components/AdminBreadcrumb';
 import NotificationBell from '../components/NotificationBell';
 
 export default function AdminLayout() {
+
     return (
         <SidebarProvider>
             <div className="min-h-screen bg-gray-50 flex w-full">
@@ -16,7 +17,9 @@ export default function AdminLayout() {
                     {/* Dashboard Toolbar / Content Header */}
                     <header className="bg-white border-b border-gray-200 flex items-center px-8 h-20 sticky top-0 z-30 shadow-sm gap-4">
                         <SidebarTrigger />
+
                         <AdminBreadcrumb />
+                        
                         <div className="ml-auto flex items-center gap-4">
                             <NotificationBell />
                             {/* Add more header tools here if needed */}

@@ -1,10 +1,15 @@
 import { Edit2, Loader2, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import IconPagination from "../../../../components/pagination/IconPagination";
 
-export default function BlogTable({ blogData, handleDeleteBlog, idDeleting }) {
+export default function BlogTable({...tableProps}) {
     return (
-        <div className="overflow-x-auto">
-            <table className="w-full text-left min-w-[600px]">
+    <div className="w-full">
+        <div className="flex items-center gap-2 text-gray-900 pb-6">
+            <h2 className="text-lg font-bold">Management</h2>
+        </div>
+        <div className="overflow-x-auto w-full rounded-lg border border-gray-100 overflow-hidden shadow-sm">
+            <table className="w-full text-left">
                 <thead>
                     <tr className="bg-gray-50/50 border-b border-gray-100">
                         <th className="px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider">Story</th>
@@ -14,7 +19,7 @@ export default function BlogTable({ blogData, handleDeleteBlog, idDeleting }) {
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50">
-                    {blogData.map((blog) => (
+                    {tableProps.blogData.map((blog) => (
                         <tr key={blog.id} className="hover:bg-gray-50/50 transition-colors group">
                             <td className="px-6 py-4 align-middle">
                                 <div className="flex items-center gap-3">
@@ -40,7 +45,7 @@ export default function BlogTable({ blogData, handleDeleteBlog, idDeleting }) {
                                 </span>
                             </td>
                             <td className="px-6 py-4 align-middle text-right">
-                                {idDeleting === blog.id ? (
+                                {tableProps.idDeleting === blog.id ? (
                                     <div className="flex items-center justify-end gap-1.5 text-red-400 font-medium text-[11px]">
                                         <Loader2 className="size-3.5 animate-spin" />
                                         Deleting...
@@ -64,5 +69,9 @@ export default function BlogTable({ blogData, handleDeleteBlog, idDeleting }) {
                 </tbody>
             </table>
         </div>
+        <div className="w-full py-2 rounded-lg shadow">
+            <IconPagination page={tableProps.page} setPage={tableProps.setPage} totalPages={tableProps.totalPages} totalItems={tableProps.totalItems}/>
+        </div>
+    </div>
     )
 }

@@ -73,18 +73,10 @@ export default function PrivateSidebar() {
                                     const isActive = location.pathname === item.path || (item.path === '/admin' && location.pathname === '/admin')
                                     return (
                                         <SidebarMenuItem key={item.path}>
-                                            <SidebarMenuButton
-                                                asChild
-                                                isActive={isActive}
-                                                tooltip={item.title}
-                                                className={cn(
-                                                    "transition-all",
-                                                    "group-data-[collapsible=icon]:!size-12 group-data-[collapsible=icon]:justify-center",
-                                                    isActive
-                                                        ? "bg-(--blueDark) text-white font-bold hover:bg-(--blueDark) hover:text-white"
-                                                        : "text-gray-500 hover:bg-gray-50 hover:text-(--blueDark)"
-                                                )}
-                                            >
+                                            <SidebarMenuButton asChild isActive={isActive} tooltip={item.title} className={cn("transition-all",
+                                                    "group-data-[collapsible=icon]:size-12! group-data-[collapsible=icon]:justify-center",
+                                                    isActive ? "bg-(--blueDark) text-white font-bold hover:bg-(--blueDark) hover:text-white" 
+                                                    : "text-gray-500 hover:bg-gray-50 hover:text-(--blueDark)")}>
                                                 <NavLink to={item.path} end={item.path === '/admin'} className="flex items-center gap-3">
                                                     <item.icon className="size-5 shrink-0" />
                                                     <span className="font-medium text-sm group-data-[collapsible=icon]:hidden">{item.title}</span>
@@ -130,15 +122,12 @@ export default function PrivateSidebar() {
                             </div>
                         )}
 
-                        <SidebarMenuButton
-                            size="lg"
+                        <SidebarMenuButton size="lg"
                             className={cn(
                                 "data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground",
-                                "group-data-[collapsible=icon]:!size-12 group-data-[collapsible=icon]:justify-center",
-                                isProfileOpen && "bg-gray-50"
-                            )}
-                            onClick={() => setIsProfileOpen(!isProfileOpen)}
-                        >
+                                "group-data-[collapsible=icon]:size-12! group-data-[collapsible=icon]:justify-center",
+                                isProfileOpen && "bg-gray-50")}
+                            onClick={() => setIsProfileOpen(!isProfileOpen)}>
                             <div className="size-8 rounded-full bg-linear-to-tr from-blue-400 to-indigo-500 flex items-center 
                                     justify-center text-white font-bold text-sm shadow-inner shrink-0 leading-none">
                                 {user?.first_name?.[0] || 'A'}

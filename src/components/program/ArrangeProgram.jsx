@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { useUpdateDisplayOrder } from "../../hooks/programs/useUpdateDisplayOrder"
 
 export default function ArrangeProgram({ programs = [], onSuccess }) {
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
     const [list, setList] = useState([])
     const [feedback, setFeedback] = useState({ state: 'idle', message: '' }) // idle, success, error
     const { reorderLoading, reorderItems } = useUpdateDisplayOrder()
@@ -67,7 +67,7 @@ export default function ArrangeProgram({ programs = [], onSuccess }) {
     return (
         <Card className="border-gray-100 shadow-xl overflow-hidden bg-white/40 backdrop-blur-md transition-all duration-500 rounded-lg
         group/card border-2 hover:border-blue-dark/20 space-y-2">
-            <CardHeader className="flex flex-row items-center justify-between cursor-pointer bg-gradient-to-r from-gray-50/50 to-transparent"
+            <CardHeader className="flex flex-row items-center justify-between cursor-pointer bg-linear-gradient-to-r from-gray-50/50 to-transparent"
                 onClick={() => setIsOpen(!isOpen)}>
                 <div className="flex items-center gap-3">
                     <div className="size-10 rounded-lg bg-blue-dark/10 flex items-center justify-center group-hover/card:bg-blue-dark/20 transition-colors">
@@ -133,7 +133,7 @@ export default function ArrangeProgram({ programs = [], onSuccess }) {
                                 {reorderLoading ? "Saving Changes..." :
                                     feedback.state === 'success' ? feedback.message :
                                         feedback.state === 'error' ? feedback.message :
-                                            "Secure Order"}
+                                            "Save"}
                             </Button>
                         </div>
                     </div>

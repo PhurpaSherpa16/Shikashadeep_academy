@@ -1,6 +1,7 @@
 export default function BlogSkeleton() {
     return (
-        <div className="border border-gray-100 rounded-xl overflow-hidden bg-white flex flex-col animate-pulse">
+        <div className="border border-gray-100 rounded-xl overflow-hidden bg-white flex flex-col animate-pulse
+        min-w-[280px] sm:min-w-[350px] md:min-w-[400px] min-h-[420px]">
             <div className="h-48 bg-gray-200 w-full" />
             <div className="p-4 space-y-4 flex-1">
                 <div className="flex justify-between items-center">

@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import SubmitActionButton from "../../../components/SubmitActionButton";
+import { Sparkles } from "lucide-react"
 
 export default function ProgramLayout(){
     const location = useLocation();
@@ -8,7 +9,7 @@ export default function ProgramLayout(){
         <>
             <Outlet/>
             {location.pathname !== "/admin/programs/new" && (
-                <SubmitActionButton location="/admin/programs/new" text="Add Program"/>
+                <SubmitActionButton actions={[{ label: "Add Program", location: "/admin/programs/new", icon: Sparkles }]} />
             )}
         </>
     )

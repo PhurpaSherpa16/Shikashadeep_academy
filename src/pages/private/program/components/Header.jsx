@@ -1,6 +1,6 @@
 import { Sparkles } from "lucide-react";
 
-export default function Header({ searchQuery, setSearchQuery }) {
+export default function Header() {
     return (
         <div className="flex flex-col md:flex-row items-center justify-between gap-32">
             <div className="space-y-1">

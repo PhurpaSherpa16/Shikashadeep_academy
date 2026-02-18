@@ -1,10 +1,10 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function IconPagination({page, setPage, totalPages, totalItems}) {
+export default function IconPagination({ page, setPage, totalPages, totalItems, itemLabel = "stories" }) {
     return (
         <div className="p-4 border-t border-gray-50 flex  flex-col sm:flex-row items-center gap-4 justify-between bg-gray-50/30">
             <p className="text-xs text-gray-500 font-medium">
-                Showing <span className="text-gray-900">{totalItems}</span> of <span className="text-gray-900">{totalItems}</span> stories
+                Showing <span className="text-gray-900">{totalItems}</span> of <span className="text-gray-900">{totalItems}</span> {itemLabel}
             </p>
             <div className="flex items-center gap-2">
                 <button

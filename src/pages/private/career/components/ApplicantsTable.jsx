@@ -1,5 +1,8 @@
-import { FileText, ExternalLink, Calendar } from "lucide-react";
-import { format } from "date-fns";
+import { FileText, ExternalLink, Calendar, Mail, Phone } from "lucide-react";
+import { format, formatDistanceStrict } from "date-fns";
+import { Link } from "react-router-dom";
+import { capitalize } from "../../../../utils/captalize";
+import { formatRemainingTime } from "../../../../utils/DateFormat";
 
 export default function ApplicantsTable({ applicants = [], jobId }) {
     if (applicants.length === 0) {
@@ -17,9 +20,9 @@ export default function ApplicantsTable({ applicants = [], jobId }) {
                     <FileText className="size-3.5 text-blue-600" />
                     Top Recent Applicants
                 </h4>
-                <button className="text-[10px] font-bold text-blue-600 hover:text-blue-700 hover:underline px-2 py-1 rounded transition-colors">
+                <Link to={`/admin/career/view/${jobId}`} className="text-[10px] font-bold text-blue-600 hover:text-blue-700 hover:underline px-2 py-1 rounded transition-colors">
                     View All Applicants
-                </button>
+                </Link>
             </div>
             <table className="w-full text-left text-sm">
                 <thead className="bg-gray-50/30 text-gray-500 text-[11px] uppercase tracking-wider font-bold">
@@ -34,18 +37,24 @@ export default function ApplicantsTable({ applicants = [], jobId }) {
                     {applicants.map((applicant) => (
                         <tr key={applicant.id} className="hover:bg-blue-50/30 transition-colors">
                             <td className="px-4 py-3">
-                                <span className="font-semibold text-gray-800">{applicant.name}</span>
+                                <span className="font-semibold text-gray-800">{capitalize(applicant.name)}</span>
                             </td>
                             <td className="px-4 py-3">
                                 <div className="flex flex-col text-xs text-gray-600">
-                                    <span>{applicant.email}</span>
-                                    <span className="text-gray-400">{applicant.phone}</span>
+                                    <span className="flex items-center gap-1">
+                                        <Mail className="size-3" />
+                                        {applicant.email}
+                                    </span>
+                                    <span className="flex items-center gap-1">
+                                        <Phone className="size-3" />
+                                        {applicant.phone}
+                                    </span>
                                 </div>
                             </td>
                             <td className="px-4 py-3">
                                 <div className="flex items-center gap-1.5 text-xs text-gray-500">
                                     <Calendar className="size-3" />
-                                    {applicant.createdAt ? format(new Date(applicant.createdAt), "MMM d, yyyy") : "N/A"}
+                                    {applicant.createdAt ? formatRemainingTime(new Date(applicant.createdAt)) : "N/A"}
                                 </div>
                             </td>
                             <td className="px-4 py-3 text-right">

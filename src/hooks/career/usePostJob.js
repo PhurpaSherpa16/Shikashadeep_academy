@@ -10,7 +10,7 @@ export default function usePostJob() {
         setLoading(true);
         setError(null);
         try {
-            const response = await postJob(formData);
+            const response = await postJob(formData)
             setData(response);
             return response;
         } catch (error) {

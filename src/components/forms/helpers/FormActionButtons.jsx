@@ -9,7 +9,7 @@ export default function FormActionButtons({
     submitText = "Save Now",
     updatingText = "Update",
     savingLabel = "Saving...",
-    updatingLabel = "Updating..."
+    updatingLabel = "Updating...",
 }) {
     return (
         <div className="flex items-center gap-4 mt-8 pt-6 border-t border-gray-100">

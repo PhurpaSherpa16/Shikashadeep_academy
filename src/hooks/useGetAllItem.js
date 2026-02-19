@@ -6,13 +6,12 @@ export const useGetAllItem = (from) => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     const [page, setPage] = useState(1)
-    const [limit, setLimit] = useState(10)
 
     const getAllItemResponse = useCallback(async () => {
         setLoading(true)
         setError(null)
         try {
-            const response = await getAllItems(from, page, limit)
+            const response = await getAllItems(from, page)
             setData(response?.data)
             return response?.data
         } catch (error) {
@@ -22,11 +21,11 @@ export const useGetAllItem = (from) => {
         } finally {
             setLoading(false)
         }
-    },[page, limit, from])
+    },[page, from])
 
     useEffect(()=>{
         getAllItemResponse(from)
     },[getAllItemResponse, from])
 
-    return { loading, error, data, getAllItemResponse, page, limit, setPage, setLimit}
+    return { loading, error, data, getAllItemResponse, page, setPage}
 }

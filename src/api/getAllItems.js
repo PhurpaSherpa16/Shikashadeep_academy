@@ -1,7 +1,7 @@
 import API_URL from "./api";
 
-export const getAllItems = async (from, page, limit) => {
-    const URL = `${API_URL}/${from}?page=${page}&limit=${limit}`
+export const getAllItems = async (from, page) => {
+    const URL = `${API_URL}/${from}?page=${page}`
     try {
         const response = await fetch(URL)
         if (!response.ok) {

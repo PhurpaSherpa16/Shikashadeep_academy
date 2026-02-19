@@ -41,18 +41,24 @@ import QueriesDashboard from '../pages/private/queries/QuriesDashboard'
 import CareerDashboard from '../pages/private/career/CareerDashboard'
 import CareerLayout from '../pages/private/career/CareerLayout'
 import PostingJob from '../pages/private/career/PostingJob'
+import UpdateJob from '../pages/private/career/updateJob'
+import ViewApplication from '../pages/private/career/ViewApplication'
+import Career from '../pages/public/career/Career'
+import ViewVacancy from '../pages/public/career/ViewVacancy'
 
 export default function MainRoutes() {
   return (
     <Routes>
       <Route path='/' element={<PublicLayout />}>
         <Route index element={<Index />} />
-        <Route path='/admission' element={<Admission />} />
-        <Route path='/about_us' element={<AboutUs />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/gallery' element={<Gallery />} />
-        <Route path='/blog_news' element={<BlogNews />} />
-        <Route path='/programs' element={<Programs />} />
+        <Route path='/admission' element={<Admission/>} />
+        <Route path='/about_us' element={<AboutUs/>} />
+        <Route path='/contact' element={<Contact/>} />
+        <Route path='/gallery' element={<Gallery/>} />
+        <Route path='/blog_news' element={<BlogNews/>} />
+        <Route path='/programs' element={<Programs/>} />
+        <Route path='/career' element={<Career/>} />
+        <Route path='/career/view/:id' element={<ViewVacancy/>}/>
       </Route>
       <Route path='/login' element={<Login />} />
       <Route path='/admin' element={
@@ -95,6 +101,8 @@ export default function MainRoutes() {
         <Route path='/admin/career' element={<CareerLayout/>}>
           <Route index element={<CareerDashboard/>}/>
           <Route path='new' element={<PostingJob/>}/>
+          <Route path='update/:id' element={<UpdateJob/>}/>
+          <Route path='view/:id' element={<ViewApplication/>}/>
         </Route>
 
       </Route>

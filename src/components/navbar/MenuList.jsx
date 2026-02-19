@@ -136,6 +136,13 @@ export default function MenuList() {
         {/* 5th menu item */}
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuLink asChild>
+            <Link to="/career" className="font-medium">Career</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+
+        {/* 5th menu item */}
+        <NavigationMenuItem className="hidden md:block">
+          <NavigationMenuLink asChild>
             <Link to="/about_us#introduction" className="font-medium">About Us</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>

@@ -6,9 +6,13 @@ import ApplicantsTable from "./ApplicantsTable";
 import { cn } from "@/lib/utils";
 import Loading from "../../../../components/Loading";
 import NoDataAvailable from "../../../../components/NoDataAvailable";
+import { Link } from "react-router-dom";
+import Error from "../../../../components/Error";
+import IconPagination from "../../../../components/pagination/IconPagination";
+import { capitalize } from "../../../../utils/captalize";
 
 export default function VacanciesTable({...tableProps}) {
-    const {jobs=[], loading, handleView, handleEdit, handleDelete} = tableProps;
+    const {jobs=[], loading, handleDelete, jobsError, setPage, total_items, total_pages, current_page, deleteLoading, deletingId } = tableProps;
     const [expandedRows, setExpandedRows] = useState(new Set());
 
     const toggleRow = (id) => {
@@ -19,13 +23,13 @@ export default function VacanciesTable({...tableProps}) {
             newExpandedRows.add(id);
         }
         setExpandedRows(newExpandedRows);
-    };
-
-    if (loading) return <div className="py-42"><Loading text='Fetching Data...' /></div>
-    if (jobs.length === 0) return <div><NoDataAvailable message='No Vacancies Found, add vacancy to get started.' link='/admin/career/new' linkText='Create Job' /></div>
-
+    }
+   
     return (
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <>{loading && jobs.length === 0 ? <div className="py-40"><Loading text='Fetching Data...' /></div> : 
+            jobs.length === 0 ? <NoDataAvailable message='No Vacancies Found, add vacancy to get started.' link='/admin/career/new' linkText='Create Job' /> : 
+            jobsError && !jobs ? <Error message={jobsError} /> : 
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
                 <table className="w-full text-left">
                     <thead className="bg-gray-50/50 text-gray-500 border-b border-gray-100">
@@ -45,8 +49,7 @@ export default function VacanciesTable({...tableProps}) {
 
                             return (
                                 <Fragment key={job.id}>
-                                    <tr className={cn(
-                                        "group hover:bg-blue-50/30 transition-all cursor-pointer",
+                                    <tr className={cn("group relative hover:bg-blue-50/30 transition-all cursor-pointer",
                                         isExpanded && "bg-blue-50/20"
                                     )}>
                                         <td className="pl-4 py-5 text-center" onClick={() => toggleRow(job.id)}>
@@ -68,7 +71,7 @@ export default function VacanciesTable({...tableProps}) {
                                                     {job.jobType}
                                                 </Badge>
                                                 <p className="text-xs text-center pl-2 text-gray-500 flex items-center gap-1">
-                                                    {job.location}
+                                                    {capitalize(job.location)}
                                                 </p>
                                             </div>
                                         </td>
@@ -90,20 +93,27 @@ export default function VacanciesTable({...tableProps}) {
                                             )}
                                         </td>
                                         <td className="px-4 py-5 text-right">
-                                            <div className="flex justify-end items-center gap-1">
-                                                <Button size="icon" variant="ghost" className="size-8 text-gray-400 hover:text-blue-600 hover:bg-blue-50" onClick={() => handleView(job.id)}>
+                                        {deleteLoading && deletingId === job.id ?
+                                            <div className="absolute right-0 top-0 scale-50">
+                                                <Loading text='Deleting Job...' />
+                                            </div>
+                                            :
+                                            <div className="flex justify-end items-center">
+                                                <Link to={`/admin/career/view/${job.id}`} className="size-8 text-gray-400 hover:text-blue-600
+                                                grid place-items-center hover:bg-blue-50">
                                                     <Eye className="size-4" />
-                                                </Button>
-                                                <Button size="icon" variant="ghost" className="size-8 text-gray-400 hover:text-blue-600 hover:bg-blue-50" onClick={() => handleEdit(job.id)}>
+                                                </Link>
+                                                <Link to={`/admin/career/update/${job.id}`} className="size-8 text-gray-400 hover:text-blue-600
+                                                grid place-items-center hover:bg-blue-50">
                                                     <Edit className="size-4" />
-                                                </Button>
+                                                </Link>
                                                 <Button size="icon" variant="ghost" className="size-8 text-gray-400 hover:text-red-500 hover:bg-red-50" onClick={() => handleDelete(job.id)}>
                                                     <Trash2 className="size-4" />
                                                 </Button>
                                             </div>
+                                        }
                                         </td>
                                     </tr>
-
                                     {/* Expandable Row Content */}
                                     {isExpanded && (
                                         <tr>
@@ -116,19 +126,21 @@ export default function VacanciesTable({...tableProps}) {
                                     )}
                                 </Fragment>
                             );
+
                         })}
                     </tbody>
                 </table>
             </div>
 
-            <div className="p-4 bg-gray-50/30 border-t border-gray-100 flex justify-between items-center">
+            <div className="p-4 bg-gray-50/30 border-t border-gray-100">
+                <IconPagination page={current_page} setPage={setPage} totalPages={total_pages} totalItems={total_items} 
+                itemLabel="Jobs"/>
                 <p className="text-xs text-gray-500 font-medium italic">
                     Tip: Click on a row or the arrow to see the latest applicants for that role.
                 </p>
-                <div className="flex gap-2">
-                    {/* Pagination could go here if implemented in useGetAllItem */}
-                </div>
             </div>
         </div>
+        }
+     </>
     );
 }

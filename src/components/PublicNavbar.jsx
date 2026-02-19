@@ -58,6 +58,8 @@ export default function PublicNavbar() {
             </div>
           </div>
         }
+        
+        {/* larger screen navbar */}
         <div ref={navbarRef} className={`container flex justify-between items-center px-4`}>
             <Link to={'/'} className='flex items-center'>
               <img src={logo} alt="logo" className='size-20'/>
@@ -73,16 +75,15 @@ export default function PublicNavbar() {
             </div>
             :
             <div>
-              {!menuDisplay?
-              <RiMenu5Fill className='size-6'
-              onClick={()=>setMenuDisplay((p)=>!p)}/>
+              {!menuDisplay? <RiMenu5Fill className='size-6' onClick={()=>setMenuDisplay((p)=>!p)}/>
               :
-              <MdClose className='size-6 text-red-800 hover:text-red-600'
-              onClick={()=>setMenuDisplay((p)=>!p)}/>}
+              <MdClose className='size-6 text-red-800 hover:text-red-600'onClick={()=>setMenuDisplay((p)=>!p)}/>}
               </div>
             }
         </div>
       </div>
+
+      {/* smaller screen navbar */}
       {!isLg &&
       <div className={`absolute z-20 h-auto w-screen
       transition-all duration-300 shadow-xl 

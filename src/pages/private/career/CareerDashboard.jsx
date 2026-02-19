@@ -3,27 +3,31 @@ import DashboardHeader from "../../../components/DashboardHeader";
 import { useGetAllItem } from "../../../hooks/useGetAllItem";
 import VacanciesTable from "./components/VacanciesTable";
 import CareerInsights from "./components/CareerInsights";
-import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import useDeleteById from "../../../hooks/useDeleteById";
 import { toast } from "sonner";
+import { useState } from "react";
 
 export default function CareerDashboard() {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const [deletingId, setDeletingId] = useState(null)
     const { loading: jobsLoading, error: jobsError, data, getAllItemResponse, page, setPage } = useGetAllItem('school/jobs');
-    const { deleteByIdHook } = useDeleteById();
+    const { deleteByIdHook, loading: deleteLoading } = useDeleteById();
 
-    const jobs = data || [];
-
+    const jobs = data?.result || [];
+    const total_items = data?.total_items;
+    const total_pages = data?.total_pages;
+    const current_page = data?.current_page_number;
     const handleView = (id) => navigate(`/admin/career/job/${id}`);
     const handleEdit = (id) => navigate(`/admin/career/job/edit/${id}`);
 
     const handleDelete = async (id) => {
         if (window.confirm("Are you sure you want to delete this job vacancy?")) {
             try {
+                setDeletingId(id)
                 await deleteByIdHook(id, 'school/job/delete');
                 toast.success("Job vacancy deleted successfully");
-                getAllItemResponse();
+                getAllItemResponse()
             } catch (error) {
                 toast.error("Failed to delete job vacancy");
             }
@@ -35,7 +39,14 @@ export default function CareerDashboard() {
         loading: jobsLoading,
         handleView,
         handleEdit,
-        handleDelete
+        handleDelete,
+        jobsError, 
+        setPage,
+        total_items,
+        total_pages,
+        current_page,
+        deleteLoading,
+        deletingId
     }
 
     const headerProps = {

@@ -20,8 +20,7 @@ export default function IconPagination({ page, setPage, totalPages, totalItems, 
                     disabled={page >= totalPages}
                     onClick={() => setPage(p => p + 1)}
                     className="p-1.5 rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 
-                    disabled:opacity-40 transition-all active:scale-95"
-                >
+                    disabled:opacity-40 transition-all active:scale-95">
                     <ChevronRight className="size-4" />
                 </button>
             </div>

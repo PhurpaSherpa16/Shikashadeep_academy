@@ -31,7 +31,7 @@ export default function PrivateSidebar() {
     const userString = localStorage.getItem("user")
     const user = userString ? JSON.parse(userString) : null
     const { logout, isLoading } = useLogout()
-
+    
     // Close profile menu on outside click
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -106,10 +106,9 @@ export default function PrivateSidebar() {
                                     <p className="text-xs text-gray-400 truncate">{user?.email}</p>
                                 </div>
 
-                                <button onClick={() => { navigate('/admin/settings'); setIsProfileOpen(false); }}
+                                <button onClick={() => { navigate(`/admin/settings/manage_profile/${user?.id}`); setIsProfileOpen(false); }}
                                     className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50
-                                    hover:text-(--blueDark) rounded-lg transition-colors text-left"
-                                >
+                                    hover:text-(--blueDark) rounded-lg transition-colors text-left">
                                     <UserPen className="size-4" />
                                     Edit Profile
                                 </button>

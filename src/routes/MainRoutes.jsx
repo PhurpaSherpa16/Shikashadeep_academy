@@ -45,6 +45,13 @@ import UpdateJob from '../pages/private/career/updateJob'
 import ViewApplication from '../pages/private/career/ViewApplication'
 import Career from '../pages/public/career/Career'
 import ViewVacancy from '../pages/public/career/ViewVacancy'
+import SubscriberLayout from '../pages/private/subscribe/SubscriberLayout'
+import SubscriberDashboard from '../pages/private/subscribe/SubscriberDashboard'
+import SettingLayout from '../pages/private/setting/SettingLayout'
+import SettingDashboard from '../pages/private/setting/SettingDashboard'
+import AddUser from '../pages/private/setting/AddUser'
+import ManageProfile from '../pages/private/setting/ManageProfile'
+import ViewBlog from '../pages/public/blognews/ViewBlog'
 
 export default function MainRoutes() {
   return (
@@ -59,6 +66,7 @@ export default function MainRoutes() {
         <Route path='/programs' element={<Programs/>} />
         <Route path='/career' element={<Career/>} />
         <Route path='/career/view/:id' element={<ViewVacancy/>}/>
+        <Route path='/blog/:id' element={<ViewBlog/>}/>
       </Route>
       <Route path='/login' element={<Login />} />
       <Route path='/admin' element={
@@ -100,9 +108,22 @@ export default function MainRoutes() {
 
         <Route path='/admin/career' element={<CareerLayout/>}>
           <Route index element={<CareerDashboard/>}/>
+          <Route index element={<CareerDashboard/>}/>
           <Route path='new' element={<PostingJob/>}/>
           <Route path='update/:id' element={<UpdateJob/>}/>
           <Route path='view/:id' element={<ViewApplication/>}/>
+        </Route>
+
+        <Route path='/admin/subscribers' element={<SubscriberLayout/>}>
+          <Route index element={<SubscriberDashboard/>}/>
+        </Route>
+
+        <Route path='/admin/settings' element={<SettingLayout />}>
+          <Route index element={<SettingDashboard/>}/>
+          <Route path='new_user/:id' element={<AddUser/>}/>
+          <Route path='manage_profile/:id' element={<ManageProfile/>}/>
+          <Route path="manage_security/:id" element={<AddUser/>}/>
+          <Route path="manage_notifications/:id" element={<AddUser/>}/>
         </Route>
 
       </Route>

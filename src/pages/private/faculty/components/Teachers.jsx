@@ -47,7 +47,7 @@ export default function Teachers({...facultyProps}) {
                 ) : facultyError ? (
                     <Error error={facultyError} message="Error loading faculty data" height="h-80" />
                 ) : facultyData && Object.keys(facultyData).length > 0 ? (
-                    Object.entries(facultyData).map(([tag, teachers, index]) => (
+                    Object.entries(facultyData).map(([tag, teachers], index) => (
                         <div key={index} className="space-y-6">
                             <div className="flex items-center gap-4">
                                 <h2 className="text-sm text-gray-400 pl-2">

@@ -3,34 +3,17 @@ import Modern from '../assets/gallery/about-card/Modern2.jpg'
 import Safe from '../assets/gallery/about-card/Safe.jpg'
 import Holistic from '../assets/gallery/about-card/Holistic.jpg'
 import Caring from '../assets/gallery/about-card/Caring.jpg'
-import Programme1 from '../assets/Programe1.jpg'
-import Programme2 from '../assets/Programe2.jpg'
-import Programme3 from '../assets/Programe3.jpg'
-import g1 from '../assets/g1.jpg'
-import g2 from '../assets/g2.jpg'
-import g3 from '../assets/g3.jpg'
-import g4 from '../assets/g4.jpg'
-import g5 from '../assets/g5.jpg'
-import g6 from '../assets/g6.jpg'
-import blog1 from '../assets/blog1.jpg'
-import blog2 from '../assets/blog2.jpg'
-import blog3 from '../assets/blog3.jpg'
-import f1 from '../assets/f1.jpeg'
-import f2 from '../assets/f2.jpeg'
-import f3 from '../assets/f3.jpeg'
-import f4 from '../assets/f4.jpeg'
-import f5 from '../assets/f5.jpeg'
-import f7 from '../assets/f7.jpeg'
-import t1 from '../assets/t1.jpg'
-import t2 from '../assets/t2.jpeg'
-import t3 from '../assets/t3.jpg'
-import t4 from '../assets/t4.jpg'
 import footerLogo from '../assets/footer_logo.png'
 import { PiPresentationChartLight, PiTiktokLogo } from "react-icons/pi";
 import { MdBiotech } from "react-icons/md";
 import { PiBusBold } from "react-icons/pi";
 import { FiFacebook } from "react-icons/fi";
 import { AiOutlineYoutube } from "react-icons/ai";
+import alumni1 from '../assets/alumni/1.jpg'
+import alumni2 from '../assets/alumni/2.jpg'
+import alumni3 from '../assets/alumni/3.jpg'
+import alumni4 from '../assets/alumni/4.jpg'
+
 import defaultImage from '../assets/gallery/faculty/board/default.png'
 
 export const quickContacts = [
@@ -128,24 +111,6 @@ export const BlueBeltContent = {
   description: "Comprehensive learning program designed to nurture each child’s unique and prepare them for future success"
 }
 
-export const programme = [
-  {
-    label: "Early Years Foundation (Playgroup - Grade 1)",
-    description: "Comprehensive learning program designed to nurture each child’s unique and prepare them for future success",
-    image: Programme1
-  },
-  {
-    label: "Elementary Group  (Grade 2 - 6)",
-    description: "Expanding knowledge across core subjects while developing critical, problem-solving, advanced academic to encourage their passions and strength.",
-    image: Programme2
-  },
-  {
-    label: "Secondary Group (Grade 7 - 10)",
-    description: "Preparing for secondary education with independence through project base learning, leadership opportunities and collaborative activities. ",
-    image: Programme3
-  },
-]
-
 export const whyChooseUs = [
   {
     label: "Safe Environment",
@@ -178,44 +143,6 @@ export const whyChooseUs = [
     icon: Trophy
   },
 ]
-
-export const images = [g1, g2, g3, g4, g5, g6]
-
-export const LatestBLogNews = [
-  {
-    tag: 'Community',
-    date: 'Aug 5, 2025',
-    readingTime: 5,
-    label: 'Building Strong Learning Foundations in Early Years',
-    description: 'Our early education program focuses on core skills through interactive activities that prepare children for long-term academic success.',
-    image: blog1,
-    color: '#1800ad'
-  },
-  {
-    tag: 'Culture',
-    date: 'Sept 21, 2025',
-    readingTime: 3,
-    label: 'Children celebrating Krishna Ashtimi with Pride and Joy',
-    description: 'Students took part in artistic endeavors centered around Lord Krishna, cultural performances, talks, and bearing ideals.',
-    image: blog2,
-    color: 'red'
-  },
-  {
-    tag: 'Achivement',
-    date: 'July 12, 2025',
-    readingTime: 6,
-    label: 'Shikshadeep Students Shine in Inter-School Competitions',
-    description: 'Our students earned top positions across academic and sports events, reflecting their dedication, teamwork.',
-    image: blog3,
-    color: '#015513'
-  },
-]
-
-export const principalWords = {
-  itroduction: "At Shikshadeep Academy, we focus on nurturing confident learners with strong values and academic excellence.",
-  description: "Our dedicated teachers and supportive environment help every child grow, explore their potential, and prepare for a bright future. Together with parents, we strive to build responsible, skilled, and successful individuals.",
-  name: "Mrs. Sikaha Pandit"
-}
 
 export const footerData = {
   school: {
@@ -328,59 +255,32 @@ export const footerData = {
   ]
 }
 
-export const teachers = [
-  {
-    name: "Sahadev Kaphle",
-    designation: "Principal",
-    qualification: "MA English",
-    experience: 8,
-    image: defaultImage,
-    quote: "Education is the most powerful tool to shape the future."
-  },
-  {
-    name: "Dhiraj kumar chaudhary",
-    designation: "Math Teacher",
-    qualification: "Bsc physics",
-    experience: 7,
-    image: defaultImage,
-    quote: "I believe every student can excel if given the right guidance."
-  },
-  {
-    name: "Khagendra Kattel",
-    designation: "Science Teacher",
-    qualification: "Master in English",
-    experience: 7,
-    image: defaultImage,
-    quote: "Science is about curiosity — I encourage students to explore."
-  }
-];
-
 export const testimonials = [
   {
     name: "Aarav Magar",
     class: "Grade 9",
-    image: defaultImage,
+    image: alumni2,
     rating: 4,
     message: "The teachers are very supportive and always help me when I face difficulties. I enjoy learning here every day."
   },
   {
     name: "Nisha Karki",
     class: "Grade 10",
-    image: defaultImage,
+    image: alumni1,
     rating: 3,
     message: "My confidence has improved a lot since joining this school. The environment is friendly and motivating."
   },
   {
     name: "Rohan Thapa",
     class: "Grade 8",
-    image: defaultImage,
+    image: alumni4,
     rating: 5,
     message: "I love the activities and projects we do in class. It makes learning fun and interesting."
   },
   {
     name: "Reshma Sharma",
     class: "Grade 10",
-    image: defaultImage,
+    image: alumni3,
     rating: 4,
     message: "I enjoy the projects we do in class, group sudy. It makes learning fun and interesting."
   }

@@ -2,32 +2,14 @@ import schoolimage from '../assets/gallery/school_image.jpg'
 import mission from '../assets/gallery/mission/1.jpg'
 import faculty from '../assets/gallery/faculty/1.jpg'
 import board from '../assets/gallery/board/1.jpg'
+import collaboration from '../assets/gallery/about-card/collaboration.jpg'
 import culture from '../assets/gallery/Culture/1.jpg'
 import election from '../assets/gallery/election/2.jpg'
 import coreMission from '../assets/mission.png'
 import facilities from '../assets/gallery/facilities.jpg'
-import one from '../assets/gallery/faculty/teachers/1.jpeg'
-import two from '../assets/gallery/faculty/teachers/2.jpeg'
-import three from '../assets/gallery/faculty/teachers/3.jpeg'
-import four from '../assets/gallery/faculty/teachers/4.jpeg'
 import five from '../assets/gallery/faculty/teachers/5.jpeg'
-import six from '../assets/gallery/faculty/teachers/6.jpeg'
 import seven from '../assets/gallery/faculty/teachers/7.jpeg'
-import eight from '../assets/gallery/faculty/teachers/8.jpeg'
-import nine from '../assets/gallery/faculty/teachers/9.jpeg'
-import ten from '../assets/gallery/faculty/teachers/10.jpeg'
-import eleven from '../assets/gallery/faculty/teachers/11.jpeg'
-import twelve from '../assets/gallery/faculty/teachers/12.jpeg'
-import thirteen from '../assets/gallery/faculty/teachers/13.jpeg'
-import fourteen from '../assets/gallery/faculty/teachers/14.jpeg'
-import fifteen from '../assets/gallery/faculty/teachers/15.jpeg'
-import sixteen from '../assets/gallery/faculty/teachers/16.jpeg'
-import seventeen from '../assets/gallery/faculty/teachers/17.jpeg'
-import eighteen from '../assets/gallery/faculty/teachers/18.jpeg'
-import board1 from '../assets/gallery/faculty/board/1.jpeg'
-import board2 from '../assets/gallery/faculty/board/2.jpeg'
-import board3 from '../assets/gallery/faculty/board/3.jpeg'
-import defaultImage from '../assets/gallery/faculty/board/default.png'
+
 
 export const school_data = {
     school_introduction: [
@@ -91,191 +73,11 @@ export const mission_data = {
 export const faculty_data = {
     label: "Our Teaching Community",
     description: "At Shikshadeep Academy, our strength lies in our dedicated and experienced teachers who are committed to guiding students both academically and personally. Our faculty members bring passion, knowledge, and care into every classroom, creating a supportive environment where students feel encouraged to learn, grow, and succeed. Through teamwork and continuous development, our educators help shape confident learners and responsible citizens.",
-    teachers: [
-        {
-            name: "Ram Sharma",
-            designation: "Principal",
-            experience: 12,
-            tag: "leadership",
-            some_words: "Committed to building a strong foundation for every learner.",
-            image: one
-        },
-        {
-            name: "Sita Adhikari",
-            designation: "Vice Principal",
-            experience: 10,
-            tag: "leadership",
-            some_words: "Focused on student growth and academic excellence.",
-            image: two
-        },
-
-        // --- Science Group ---
-        {
-            name: "Anita Thapa",
-            designation: "Science Teacher",
-            experience: 7,
-            tag: "science",
-            some_words: "Encouraging curiosity and scientific thinking.",
-            image: three
-        },
-        {
-            name: "Amit Chaudhary",
-            designation: "Science Teacher",
-            experience: 5,
-            tag: "science",
-            some_words: "Learning through experiments and observation.",
-            image: four
-        },
-        {
-            name: "Bikash Karki",
-            designation: "Mathematics Teacher",
-            experience: 8,
-            tag: "science",
-            some_words: "Making numbers simple and enjoyable for students.",
-            image: five
-        },
-        {
-            name: "Kiran Joshi",
-            designation: "Mathematics Teacher",
-            experience: 4,
-            tag: "science",
-            some_words: "Helping students gain confidence in problem solving.",
-            image: six
-        },
-        {
-            name: "Deepak Shrestha",
-            designation: "Computer Teacher",
-            experience: 5,
-            tag: "science",
-            some_words: "Preparing students for the digital future.",
-            image: seven
-        },
-
-        // --- Social Group ---
-        {
-            name: "Sunita KC",
-            designation: "Social Studies / Civics Teacher",
-            experience: 6,
-            tag: "social",
-            some_words: "Teaching responsibility and civic awareness.",
-            image: eight
-        },
-        {
-            name: "Rekha Basnet",
-            designation: "Health & Moral Education Teacher",
-            experience: 8,
-            tag: "social",
-            some_words: "Guiding students toward healthy and ethical living.",
-            image: nine
-        },
-        {
-            name: "Suresh Tamang",
-            designation: "Social Studies Teacher",
-            experience: 6,
-            tag: "social",
-            some_words: "Connecting classroom learning with real life.",
-            image: ten
-        },
-
-        // --- Language Group ---
-        {
-            name: "Ramesh Poudel",
-            designation: "English Teacher",
-            experience: 9,
-            tag: "language",
-            some_words: "Building strong communication and confidence.",
-            image: eleven
-        },
-        {
-            name: "Manju Pandey",
-            designation: "Nepali Language Teacher",
-            experience: 9,
-            tag: "language",
-            some_words: "Preserving language and cultural values.",
-            image: twelve
-        },
-
-        // --- Other Group ---
-        {
-            name: "Nirmala Gurung",
-            designation: "Pre-Primary Teacher",
-            experience: 11,
-            tag: "other",
-            some_words: "Nurturing young minds with care and creativity.",
-            image: thirteen
-        },
-        {
-            name: "Santosh Rai",
-            designation: "Physical Education Teacher",
-            experience: 7,
-            tag: "other",
-            some_words: "Promoting health, teamwork, and discipline.",
-            image: fourteen
-        },
-        {
-            name: "Puja Bhandari",
-            designation: "Arts & Craft Teacher",
-            experience: 6,
-            tag: "other",
-            some_words: "Encouraging creativity and self-expression.",
-            image: fifteen
-        },
-        {
-            name: "Prakash Dahal",
-            designation: "Music Teacher",
-            experience: 5,
-            tag: "other",
-            some_words: "Inspiring rhythm, confidence, and creativity.",
-            image: sixteen
-        },
-        {
-            name: "Kalpana Shahi",
-            designation: "Library & Reading Coordinator",
-            experience: 7,
-            tag: "other",
-            some_words: "Developing reading habits and curiosity.",
-            image: seventeen
-        },
-        {
-            name: "Meena Khatri",
-            designation: "Class Teacher (Grade 5)",
-            experience: 9,
-            tag: "other",
-            some_words: "Supporting students academically and emotionally.",
-            image: eighteen
-        },
-    ],
-    tagTitles: {
-        leadership: "Academic Leadership",
-        science: "Science & Technology Department",
-        social: "Social Studies & Moral Education",
-        language: "Language Department",
-        other: "Co-Curricular & Primary Section",
-    }
-
-
 }
 
 export const boardMember = {
     label: "Advisory Members",
     description: "Shikshadeep Academy's advisory members provide strategic guidance, uphold our mission, and ensure the highest standards in education and student development.",
-    members: [
-        {
-            names: "Bishnu Bahadur Basnet",
-            some_words: "Dedicated to fostering excellence and building a brighter future for every student.",
-            image: defaultImage,
-        },
-        {
-            names: "Yubraj Kaphle",
-            some_words: "Committed to creating an inclusive environment where all students can thrive.",
-            image: defaultImage,
-        },
-        {
-            names: "Rup Narayan",
-            some_words: "Supporting innovation and quality education that shapes responsible global citizens.",
-            image: defaultImage,
-        },
-    ]
 }
 
 export const values_data = {
@@ -305,7 +107,7 @@ export const values_data = {
         {
             title: "Collaboration",
             description: "We emphasize the power of teamwork. By working together, students learn to solving problems effectively and to appreciate diverse viewpoints.",
-            image: board
+            image: collaboration
         },
         {
             title: "Responsibility",

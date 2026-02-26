@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Link } from "react-router-dom"
 import Loading from "../Loading"
 
-export default function ProgramCard({ program, index, ...props}) {
+export default function ProgramCard({ program, index, showAction=true, ...props}) {
 
     return (
         <Card className={`group relative overflow-hidden transition-all duration-300 
@@ -50,6 +50,7 @@ export default function ProgramCard({ program, index, ...props}) {
                 <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
+            {/* {showAction && }             */}
             <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Link to={`update/${program.id}`} className="h-8 w-8 rounded-full bg-white/90 hover:bg-white 
                 hover:text-blue-dark border-gray-200 grid place-items-center"

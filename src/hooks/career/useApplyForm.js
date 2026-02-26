@@ -67,6 +67,7 @@ export default function useApplyForm() {
             await jobApplicationPosting(id, data)
             toast.success("Application submitted successfully!")
             handleReset()
+        // eslint-disable-next-line no-unused-vars
         } catch (error) {
             toast.error('Application submitting failed, please try later.')
         }finally{

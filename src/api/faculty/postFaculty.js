@@ -19,6 +19,8 @@ export const postFaculty = async (formData) => {
             body: teacherData
         })
 
+        console.log(response)
+
         const data = await response.json()
 
         if(!response.ok){
@@ -27,6 +29,7 @@ export const postFaculty = async (formData) => {
         return data
 
     } catch (error) {
+        console.log(error)
         throw error.response?.data || error.message || "Failed to post faculty";
     }
 };

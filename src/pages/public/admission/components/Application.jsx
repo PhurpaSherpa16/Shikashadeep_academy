@@ -104,7 +104,7 @@ export default function Application() {
                                                     name="contact_no"
                                                     value={formData.contact_no}
                                                     onChange={handleChange}
-                                                    placeholder="9812345678"
+                                                    placeholder="1234567890"
                                                     type="tel"
                                                     maxLength="10"
                                                     required
@@ -122,7 +122,7 @@ export default function Application() {
                                                     name="address"
                                                     value={formData.address}
                                                     onChange={handleChange}
-                                                    placeholder="Kathmandu, Nepal"
+                                                    placeholder="Itahari-16, Sunsari-Nepal"
                                                     required
                                                 />
                                                 {errors.address && (

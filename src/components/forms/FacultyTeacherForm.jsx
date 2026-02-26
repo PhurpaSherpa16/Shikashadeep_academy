@@ -7,17 +7,9 @@ import { cn } from "@/lib/utils";
 import FormActionButtons from "./helpers/FormActionButtons";
 import FormStatusMessages from "./helpers/FormStatusMessages";
 import FormErrorMessage from "./helpers/FormErrorMessage";
+import { capitalize } from "../../utils/captalize";
 
-const EXPERIENCE_YEARS = [
-    "Fresh Graduate",
-    "1+ Years",
-    "2+ Years",
-    "3+ Years",
-    "5+ Years",
-    "8+ Years",
-    "10+ Years",
-    "15+ Years"
-];
+const EXPERIENCE_YEARS = [ 1, 2, 3, 5, 8, 10, 15 ];
 
 const QUALIFICATIONS = [
     "Bachelor's Degree",
@@ -44,7 +36,18 @@ const SUBJECT_TAGS = [
     "Accountancy",
     "Economics",
     "Sports"
-];
+]
+
+const Designation = [
+    "director",
+    "principal",
+    "vice principal",
+    "senior lecturer",
+    "lecturer",
+    "assistant lecturer",
+    "sports coach",
+    "others"
+]
 
 export default function FacultyTeacherForm({ facultyData, onSubmit, error }) {
     const [status, setStatus] = useState("idle")
@@ -52,7 +55,7 @@ export default function FacultyTeacherForm({ facultyData, onSubmit, error }) {
     const [formData, setFormData] = useState({
         name: "",
         designation: "",
-        experience: "",
+        experience: 0,
         qualification: "",
         quotes: "",
         isActive: true,
@@ -180,8 +183,13 @@ export default function FacultyTeacherForm({ facultyData, onSubmit, error }) {
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="designation" className="text-sm font-bold text-gray-700">Designation</Label>
-                                    <Input id="designation" name="designation" value={formData.designation} onChange={handleChange} placeholder="e.g. Senior Lecturer"
-                                        className={cn("rounded-lg border-gray-200 focus:ring-blue-dark h-12", internalError.designation && "border-red-300 bg-red-50")} />
+                                    <select id="designation" name="designation" value={formData.designation} onChange={handleChange}
+                                        className={cn("w-full px-4 h-12 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-dark/20 focus:border-blue-dark outline-none transition-all bg-white text-sm", internalError.designation && "border-red-300 bg-red-50")}>
+                                        <option value="">Select Designation</option>
+                                        {Designation.map(designation => (
+                                            <option key={designation} value={designation}>{capitalize(designation)}</option>
+                                        ))}
+                                    </select>   
                                     <FormErrorMessage message={internalError.designation} />
                                 </div>
                                 <div className="space-y-2">
@@ -205,7 +213,7 @@ export default function FacultyTeacherForm({ facultyData, onSubmit, error }) {
                                         className="w-full px-4 h-12 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-dark/20 focus:border-blue-dark outline-none transition-all bg-white text-sm">
                                         <option value="">Select Experience</option>
                                         {EXPERIENCE_YEARS.map(year => (
-                                            <option key={year} value={year}>{year}</option>
+                                            <option key={year} value={year}>{year}+ years</option>
                                         ))}
                                     </select>
                                 </div>

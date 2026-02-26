@@ -6,17 +6,14 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { Link } from "react-router-dom"
-import { blogs } from '../../data/blogNews'
-import {gallery} from '../../data/gallery'
+import { Link, useNavigate } from "react-router-dom"
+import { useGetAllItemsWithCache } from "../../api/getAllItemsWithCache"
 
 
 export default function MenuList() {
-
-  const latestBlog = [...blogs].sort((a,b)=>new Date(b.date) - new Date(a.date))
-  const latestPhotos = gallery.filter(item => item.highlight).sort((a,b)=>new Date(b.date) - new Date(a.date)).slice(0,4)
-
-
+  const {data} = useGetAllItemsWithCache('blogs')
+  const latestBlog = data?.data?.blogs?.slice(0,5)
+  const navigate = useNavigate()
   return (
     <NavigationMenu>
       <NavigationMenuList className="flex-wrap">
@@ -61,16 +58,15 @@ export default function MenuList() {
               </p>
 
               <ul className="grid gap-2 sm:w-100 md:w-125 md:grid-cols-2 lg:w-150">
-                {latestBlog.slice(0,5).map((item, index) => (
+                {latestBlog?.map((item, index) => (
                   <ListItem
                     key={index}
-                    title={item.label}>
-                      <Link to={`/blog_news?q=${item.label}`}>
-                        {item.description}
-                      </Link>
+                    title={item.title}
+                    onClick={()=>{navigate(`/blog/${item.id}`)}}>
+                      {item.description}
                   </ListItem> 
                 ))}
-                <div className=" flex items-end justify-end w-full">
+                <div className="flex items-end justify-end w-full">
                   <ListItem asChild>
                     <Link to="/blog_news">
                       View All Blogs & News
@@ -85,52 +81,9 @@ export default function MenuList() {
 
         {/* Gallery */}
         <NavigationMenuItem className="hidden md:block">
-          <NavigationMenuTrigger>Gallery
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-2 md:w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="from-muted/50 to-muted flex h-full w-full flex-col 
-                    relative p-0!
-                    justify-end rounded-md bg-linear-to-b no-underline outline-hidden 
-                    transition-all duration-200 
-                    select-none focus:shadow-md border"
-                    to="/gallery?q=Culture"
-                  >
-                    <img src={latestPhotos[0].image} alt="image" className="absolute z-0
-                    h-full w-full inset-0 object-center object-cover"/>
-                    <div className="relative z-10 p-4 w-full bg-linear-to-t from-black via-50% to-transparent">
-                      <h2 className=" mb-2 text-lg text-white font-medium sm:mt-4">
-                        {latestPhotos[0].label}
-                      </h2>
-                      <p className=" text-white/60 text-sm leading-tight">
-                        {latestPhotos[0].caption}
-                      </p>
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title={latestPhotos[1].label}>
-                <Link to="/gallery?q=yoga">
-                  {latestPhotos[1].caption}
-                </Link>
-              </ListItem>
-              <ListItem href="/docs/installation" title={latestPhotos[2].label}>
-                <Link to="/gallery?q=farewell">
-                  {latestPhotos[2].caption}
-                </Link>
-              </ListItem>
-              <div className="flex items-end justify-end">
-                  <ListItem asChild>
-                    <Link to="/gallery">
-                      View All Photos
-                    </Link>
-                  </ListItem>
-              </div>
-            </ul>
-          </NavigationMenuContent>
+          <NavigationMenuLink asChild>
+            <Link to="/gallery" className="font-medium">Gallery</Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
 
         {/* 5th menu item */}

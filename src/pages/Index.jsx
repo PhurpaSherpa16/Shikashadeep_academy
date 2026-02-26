@@ -6,7 +6,6 @@ import FacilitiesSection from "./public/landing/components/FacilitiesSection";
 import GallerySection from "./public/landing/components/GallerySection";
 import HeroSection from "./public/landing/components/HeroSection";
 import OurFacultySection from "./public/landing/components/OurFacultySection";
-import PrincipleWordSection from "./public/landing/components/PrincipleWordSection";
 import ProgrameSection from "./public/landing/components/ProgrameSection";
 import StayUpdated from "./public/landing/components/StayUpdated";
 import SummuryBelt from "./public/landing/components/SummuryBelt";
@@ -15,6 +14,7 @@ import WhyUsSection from "./public/landing/components/WhyUsSection";
 
 export default function Index() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
+  
   return (
     <div>
       <HeroSection />
@@ -26,7 +26,6 @@ export default function Index() {
       <WhyUsSection />
       <GallerySection />
       <BlogNewsSection />
-      {/* <PrincipleWordSection/> */}
       <OurFacultySection />
       <TestonomialSection />
       <StayUpdated />

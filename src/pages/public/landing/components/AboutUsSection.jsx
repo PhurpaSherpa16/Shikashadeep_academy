@@ -59,20 +59,12 @@ export default function AboutUsSection() {
                                         className='object-center object-cover h-full w-full group-hover:scale-120 
                             transition-all duration-300 rounded-lg'/>
                                 </div>
-                                <div className='relative bg-linear-to-t
-                        from-black/80 via-black/40 to-transparent
-                        p-4 pt-32 
-                        space-y-4 h-76 flex flex-col justify-between'>
-                                    <div>
-                                        <span className='text-white font-bold tracking-wide
-                                group-hover:underline'>{item.label}</span>
+                                <div className='relative bg-linear-to-t from-black/80 via-black/40 to-transparent p-4 pt-40  space-y-4 h-76 flex flex-col justify-between'>
+                                    <div className='h-fit flex flex-col'>
+                                        <h3 className='text-white font-bold tracking-wide
+                                group-hover:underline'>{item.label}</h3>
                                         <p className='text-(--secondaryTextWhite)'>{item.description}</p>
                                     </div>
-                                    <Link to={'/'} className='text-white group
-                            flex items-center gap-1 cursor-pointer'>
-                                        Load More
-                                        <MoveRight className='transition-transform duration-300 group-hover:-rotate-45 origin-center' />
-                                    </Link>
                                 </div>
                             </div>
                         ))}

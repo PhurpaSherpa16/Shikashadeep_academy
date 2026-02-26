@@ -1,54 +1,19 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { CheckCircle2, ArrowRight } from "lucide-react";
-import Programme1 from '../../../assets/programe1.jpg'
-import Programme2 from '../../../assets/programe2.jpg'
-import Programme3 from '../../../assets/programe3.jpg'
-import blog3 from '../../../assets/blog3.jpg' // Using for Tuition
 import {MoveRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-
-const programContent = [
-    {
-        id: "early-years",
-        label: "Early Years Foundation",
-        age: "Playgroup - Grade 1",
-        description: "A nurturing environment that focuses on core skills through interactive, play-based activities.",
-        features: ["Social & Emotional Development", "Fine Motor Skills", "Basic Numeracy & Literacy", "Creative Arts"],
-        image: Programme1,
-        color: "bg-blue-50"
-    },
-    {
-        id: "elementary-years",
-        label: "Elementary Years",
-        age: "Grade 2 - 6",
-        description: "Expansion of knowledge across core subjects while developing critical thinking and problem-solving skills.",
-        features: ["Core Academic Mastery", "Inquiry-Based Learning", "Language Proficiency", "Physical Education"],
-        image: Programme2,
-        color: "bg-gray-50"
-    },
-    {
-        id: "secondary-school",
-        label: "Secondary School",
-        age: "Grade 7 - 10",
-        description: "Preparing students for higher education through project-based learning and leadership opportunities.",
-        features: ["Advanced Sciences & Math", "Leadership Development", "Project-Based Learning", "Career Counseling"],
-        image: Programme3,
-        color: "bg-blue-50"
-    },
-    {
-        id: "tuition",
-        label: "Specialized Tuition",
-        age: "All Grades",
-        description: "Dedicated support for students who need extra guidance or wish to excel further in specific subjects.",
-        features: ["Personalized Attention", "Subject-Specific Support", "Exam Preparation", "Bridge Courses"],
-        image: blog3,
-        color: "bg-gray-50"
-    }
-];
+import { useGetAllItemsWithCache } from "../../../api/getAllItemsWithCache";
+import Loading from "../../../components/Loading";
+import Error from "../../../components/Error";
+import NoItemsForPublic from "../../../components/NoItemsForPublic";
+import LandingPageCard from "../../../components/program/LandingPageCard";
 
 export default function Programs() {
     const { hash } = useLocation();
+    const {data, isLoading, error} = useGetAllItemsWithCache("programs", 1)
+    const programData = data?.data?.programs
+
+    console.log(programData)
 
     useEffect(() => {
         if (hash) {
@@ -71,7 +36,7 @@ export default function Programs() {
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <div className="grid place-items-center lg:place-items-start px-4 lg:px-0">
+            <div className="grid place-items-center lg:place-items-start px-4 l:px-0">
                 <div className="container mx-auto py-16 text-center lg:text-left">
                     <div className="w-full md:max-w-2xl lg:max-w-3xl space-y-6">
                         <h1 className="font-serif">
@@ -85,56 +50,27 @@ export default function Programs() {
             </div>
 
             {/* Programs List */}
-            <div className="space-y-16 px-4 lg:px-0">
-                {programContent.map((program, index) => (
-                    <section key={program.id} id={program.id} 
-                    className={`${index % 2 === 1 ? 'bg-gray-50/50' : 'bg-white'}`}>
-                        <div className="container mx-auto px-4">
-                            <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                                <div className={`space-y-8 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                                    <div className="space-y-4">
-                                        <span className="text-(--blueDark) tracking-widest uppercase text-sm">
-                                            {program.age}
-                                        </span>
-                                        <h1 className="font-serif">
-                                            {program.label}
-                                        </h1>
-                                        <p className="text-lg text-gray-600 leading-relaxed text-justify">
-                                            {program.description}
-                                        </p>
-                                    </div>
-
-                                    <div className="grid sm:grid-cols-2 gap-4">
-                                        {program.features.map((feature, i) => (
-                                            <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                                <CheckCircle2 className="text-green-500 size-5 shrink-0" />
-                                                <span className="text-sm font-medium text-gray-700">{feature}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    <div className="pt-4">
-                                        <button className="flex items-center gap-2 text-(--blueDark) font-bold group hover:underline underline-offset-4 transition-all">
-                                            <Link to='/contact' className="flex items-center gap-2">
-                                                Inquire About This Program
-                                                <ArrowRight className="size-4 group-hover:-rotate-45 transition-transform" />
-                                            </Link>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div className={`relative ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                                    <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-2xl">
-                                        <img src={program.image} alt={program.label} className="w-full h-full object-cover 
-                                        object-top hover:scale-105 transition-transform duration-700"/>
-                                        <div className="absolute inset-0 bg-blue-900/10 pointer-events-none" />
-                                    </div>
-                                    {/* Decorative elements */}
-                                    <div className="absolute -bottom-6 -right-6 -left-6 h-12 bg-(--blueDark)/5 rounded-full blur-3xl -z-10" />
-                                </div>
-                            </div>
+            <div className="min-h-120 flex flex-col gap-8">
+                {isLoading && (
+                    <div className='flex flex-col gap-8 container px-4'>
+                        <Loading text={'Loading Programs'}/>
+                    </div>
+                )}
+                {error && (
+                    <div className='container px-4'>
+                        <Error text={'Error Loading Programs, Please Wait'}/>
+                    </div>
+                )}
+                {!isLoading && !error && programData?.length === 0 && (
+                        <div className='container px-4 grid place-items-center min-h-64'>
+                            <NoItemsForPublic message="No Programs Available" link={'/'} linkText="Refresh"/>
                         </div>
-                    </section>
+                    )
+                }
+                {!isLoading && !error && programData?.map((item, index) => (
+                    <>
+                       <LandingPageCard actions={false} key={index} program={item} index={index}/>
+                    </>
                 ))}
             </div>
 
@@ -165,8 +101,6 @@ export default function Programs() {
                             </Link>
                         </Button>
                     </div>
-
-
                 </div>
             </div>
         </div>

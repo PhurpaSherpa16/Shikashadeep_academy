@@ -16,9 +16,9 @@ export default function WhyUsSection() {
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-16'>
           {whyChooseUs.map((item, index) => (
             <div key={index} className='group grid place-items-center gap-8 border 
-                py-6 px-8 rounded-lg shadow transition-all cursor-pointer
+                py-6 px-8 rounded-lg shadow transition-all cursor-pointer bg-white
                 hover:-translate-y-1 hover:shadow-xl duration-300 hover:scale-98'>
-              <div className='p-3 bg-(--lightBlue) w-fit rounded group-hover:bg-(--blueDark) group-hover:transition-all duration-300
+              <div className='p-3 bg-(--lightBlue)/30 w-fit rounded group-hover:bg-(--blueDark) group-hover:transition-all duration-300
                     group-hover:scale-120'>
                 <item.icon className='size-6 text-(--blueDark) 
                         group-hover:text-white 

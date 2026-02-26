@@ -21,7 +21,7 @@ export const useGetAllItem = (from) => {
         } finally {
             setLoading(false)
         }
-    },[page, from])
+    },[from, page])
 
     useEffect(()=>{
         getAllItemResponse(from)

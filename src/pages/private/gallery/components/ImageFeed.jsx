@@ -36,18 +36,14 @@ export default function ImageFeed({ ...imageProps }) {
         <div className="rounded-2xl shadow-sm border border-gray-100 p-6 h-full 
         relative flex flex-col justify-between">
             {isViewerOpen && (
-                <ImageViewer
-                    images={{ images: imageProps.images }}
-                    onClose={() => setIsViewerOpen(false)}
-                    index={selectedImage}
-                />
+                <ImageViewer images={{ images: imageProps.images }} onClose={() => setIsViewerOpen(false)} index={selectedImage}/>
             )}
             <div>
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-lg font-bold text-gray-800">Recent Images</h2>
                 </div>
                 {imageProps.loading && (
-                    <div className="grid grid-cols-[repeat(auto-fill,minmax(min(160px,100%),1fr))] 2xl:grid-cols-[repeat(auto-fill,minmax(min(300px,100%),1fr))] gap-3 mb-6">
+                    <div className="grid grid-cols-[repeat(auto-fill,minmax(min(200px,100%),1fr))] 2xl:grid-cols-[repeat(auto-fill,minmax(min(300px,100%),1fr))] gap-3 mb-6">
                         {Array.from({length: 9}).map((_, index) => (
                             <GalleryImageSkeleton key={index} />
                         ))}

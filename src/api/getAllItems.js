@@ -5,7 +5,6 @@ export const getAllItems = async (from, page) => {
     try {
         const response = await fetch(URL)
         if (!response.ok) {
-            console.log(response)
             throw new Error("Failed to fetch items")
         }
         const data = await response.json()

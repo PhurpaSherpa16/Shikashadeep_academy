@@ -22,7 +22,7 @@ export const updateFaculty = async (id, formData) => {
             method: "PUT",
             body: teacherData
         })
-
+        console.log(response)
         const data = await response.json()
 
         if (!response.ok) {

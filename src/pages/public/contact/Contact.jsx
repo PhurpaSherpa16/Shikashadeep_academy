@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { images } from '../../../data/site'
+import background from '@/assets/contact_page_background.jpg'
 import ContactInformation from './component/ContactInformation'
 import InqueryForm from './component/InqueryForm'
 
@@ -11,7 +11,7 @@ export default function Contact() {
             <div className='relative text-white py-20'>
                 {/* Background & Overlay */}
                 <div className='absolute inset-0 z-0'>
-                    <img src={images[3]} alt="Contact Background" className='w-full h-full object-center object-cover' />
+                    <img src={background} alt="Contact Background" className='w-full h-full object-center object-cover' />
                     <div className='absolute inset-0 bg-[#1800ad]/20 backdrop-blur' />
                 </div>
 

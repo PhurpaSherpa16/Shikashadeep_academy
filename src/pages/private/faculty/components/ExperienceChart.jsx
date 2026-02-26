@@ -34,7 +34,8 @@ export default function ExperienceChart({ teachers }) {
     };
 
     teachers.forEach(teacher => {
-        const years = parseExperience(teacher.experience);
+        const teacherExperience = `${teacher.experience}+ Years`
+        const years = parseExperience(teacherExperience)
 
         // Special case for "Fresh Graduate"
         if (teacher.experience === 'Fresh Graduate' || years === 0) {

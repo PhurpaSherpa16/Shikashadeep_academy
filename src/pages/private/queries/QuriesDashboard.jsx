@@ -15,7 +15,7 @@ export default function QueriesDashboard() {
     const [isDeletingId, setIsDeletingId] = useState(null)
 
     // Fetch all queries
-    const {loading: queriesLoading, error: queriesError, data, getAllItemResponse, page, limit, setPage} = useGetAllItem('query');
+    const {loading: queriesLoading, data, getAllItemResponse, page, setPage} = useGetAllItem('query');
 
     // Fetch single query by id
     const {loading: queryLoading, error: queryError, data: queryData, getItemById} = useGetItemById(selectedQueryId, 'query');

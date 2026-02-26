@@ -11,9 +11,11 @@ export default function usePostFaculty() {
         setError(null)
         try {
             const response = await postFaculty(formData)
+            console.log(response)
             setData(response?.data)
             return response
         } catch (error) {
+            console.log(error)
             setError(error)
             return false
         } finally {

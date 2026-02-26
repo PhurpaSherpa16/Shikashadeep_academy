@@ -1,10 +1,10 @@
 import Tag from './Tag'
 import { testimonials } from '../../../../data/site'
-import {Download, MoveRight, Quote } from 'lucide-react'
+import {Download, MoveRight, Quote, Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useBreakPoints } from '../../../../utils/Responsive'
 import { IoIosStar } from "react-icons/io";
-
+import { Link } from 'react-router-dom'
 
 export default function TestonomialSection() {
 
@@ -28,7 +28,7 @@ export default function TestonomialSection() {
                         rounded-lg ${isLg && (index+1)%2 === 0 ? '-translate-y-4 rotate-4' : 'translate-y-0'}`}>
                             <img src={item.image} alt="image" className='h-full w-full object-top object-cover'/>
                             <div className='flex flex-col justify-between bg-(--blueDark)/10 
-                                group-hover:bg-(--blueDark) transition-all duration-300
+                                group-hover:bg-indigo-900/80 transition-all duration-300
                                 backdrop-blur-2xl
                                 h-35 md:h-40  lg:h-44 absolute bottom-0 p-4'>
                                 <div className='relative'>
@@ -61,18 +61,20 @@ export default function TestonomialSection() {
                         <p className='text-center'>Schedule a campus visit or download our prospectus to learn more about admission requirements</p>
                     </div>
                     <div className='grid md:flex gap-4 lg:gap-8'>
-                        <Button className="group bg-(--blueDark)
+                        <Link to={'/contact'} className="group bg-(--blueDark) text-white
                             px-8! lg:px-12! cursor-pointer shadow-md hover:shadow-lg 
-                            transition-all flex items-center gap-2 py-3 rounded-full">
+                            transition-all flex items-center gap-2 py-2 rounded-full">
                             Schedule School Visit
                             <MoveRight className="transition-transform duration-300 group-hover:-rotate-45 origin-center" />
-                        </Button>
-                        <Button variant='outline' className="group
+                        </Link>
+                        <Link to={'/admission#application-form'} className="group
                             px-8! lg:px-12! cursor-pointer shadow-md hover:shadow-lg 
-                            transition-all flex items-center gap-2 py-3 rounded-full">
-                            Download Prospectus
-                            <Download className="transition-transform duration-300 group-hover:scale-90 origin-center" />
-                        </Button>
+                            transition-all flex items-center gap-2 py-2 rounded-full">
+                            Send Application
+                            <Send className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1
+                            group-hover:scale-95
+                            origin-center" />
+                        </Link>
                     </div>
                 </div>
             </div>

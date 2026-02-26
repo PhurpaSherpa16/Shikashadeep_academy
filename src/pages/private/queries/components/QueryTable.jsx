@@ -1,5 +1,5 @@
 import { Mail, Calendar, Eye, Phone, Circle, Trash } from 'lucide-react';
-import { format, formatDistanceStrict } from 'date-fns';
+import { formatDistanceStrict } from 'date-fns';
 import IconPagination from '@/components/pagination/IconPagination';
 import Loading from '../../../../components/Loading';
 

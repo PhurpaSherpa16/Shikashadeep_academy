@@ -13,11 +13,11 @@ export default function InqueryForm() {
     const [errors, setErrors] = useState({})
     const [disabled, setDisabled] = useState(false)
     const [formData, setFormData] = useState({
-        name: "Apple",
-        email: "apple@gmail.com",
-        subject: "apple",
-        message: "apple",
-        phone: "1234567890"
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+        phone: ""
     })
 
     const handleChange = (e) => {
@@ -69,12 +69,12 @@ export default function InqueryForm() {
                     <form onSubmit={handleSubmit} className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                         <div className='space-y-2'>
                             <label className='text-sm font-medium text-gray-900'>Full Name</label>
-                            <Input name="name"value={formData.name}onChange={handleChange}placeholder='John Doe'required/>
+                            <Input name="name"value={formData.name}onChange={handleChange}placeholder='Shyan Raj Pandey'required/>
                             {errors.name && <p className='text-xs pl-2 text-red-500'>{errors.name}</p>}
                         </div>
                         <div className='space-y-2'>
                             <label className='text-sm font-medium text-gray-900'>Email Address</label>
-                            <Input name="email"type='email'value={formData.email}onChange={handleChange}placeholder='john@example.com'required/>
+                            <Input name="email"type='email'value={formData.email}onChange={handleChange}placeholder='shyanrajpandey@example.com'required/>
                             {errors.email && <p className='text-xs pl-2 text-red-500'>{errors.email}</p>}
                         </div>
                         <div className='space-y-2'>

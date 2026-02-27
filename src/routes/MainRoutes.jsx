@@ -52,6 +52,9 @@ import SettingDashboard from '../pages/private/setting/SettingDashboard'
 import AddUser from '../pages/private/setting/AddUser'
 import ManageProfile from '../pages/private/setting/ManageProfile'
 import ViewBlog from '../pages/public/blognews/ViewBlog'
+import FlashNoticeLayout from '../pages/private/flash_notice/FlashNoticeLayout'
+import FlashNoticeDashboard from '../pages/private/flash_notice/FlashNoticeDashboard'
+import AddNewFalshNotice from '../pages/private/flash_notice/AddNewFalshNotice'
 
 export default function MainRoutes() {
   return (
@@ -124,6 +127,11 @@ export default function MainRoutes() {
           <Route path='manage_profile/:id' element={<ManageProfile/>}/>
           <Route path="manage_security/:id" element={<AddUser/>}/>
           <Route path="manage_notifications/:id" element={<AddUser/>}/>
+        </Route>
+
+        <Route path='/admin/notice' element={<FlashNoticeLayout />}>
+          <Route index element={<FlashNoticeDashboard />} />
+          <Route path='new' element={<AddNewFalshNotice/>} />
         </Route>
 
       </Route>

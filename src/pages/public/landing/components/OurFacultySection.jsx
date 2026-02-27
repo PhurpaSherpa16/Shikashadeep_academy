@@ -7,10 +7,8 @@ import TeacherCard from '../../about/components/TeacherCard'
 import LoadingErrorHandle from './LoadingErrorHandle'
 
 export default function OurFacultySection() {
-    const { data, isLoading, error } = useGetAllItemsWithCache("school/teachers/all")
+    const { data } = useGetAllItemsWithCache("school/teachers/all")
     const teachers = data?.data?.slice(0, 3)
-
-    console.log(teachers)
 
     return (
         <div className='py-16'>

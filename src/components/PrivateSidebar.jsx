@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { privateNavbarMenuList } from '../constants/privateNavbarMenuList';
-import { LogOut, ChevronLeft, ChevronRight, GraduationCap, ChevronDown, UserPen, ChevronsUpDown } from 'lucide-react';
+import { LogOut, UserPen, ChevronsUpDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLogout } from '../hooks/auth/useLogout';
 import {

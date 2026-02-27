@@ -14,7 +14,6 @@ export default function usePostJobApplication(){
             setData(data)
             return data
         } catch (error) {
-            console.log('Error', error);
             setError(error.message)
             throw error
         } finally {

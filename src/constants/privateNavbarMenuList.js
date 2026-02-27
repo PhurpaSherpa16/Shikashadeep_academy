@@ -9,7 +9,8 @@ import {
     Mail,
     Settings,
     School,
-    AppWindowMac
+    AppWindowMac,
+    Megaphone
 } from 'lucide-react';
 
 export const privateNavbarMenuList = [
@@ -45,6 +46,11 @@ export const privateNavbarMenuList = [
                 title: "Gallery",
                 path: "/admin/gallery",
                 icon: Image
+            },
+            {
+                title: "Flash Notice",
+                path: "/admin/notice",
+                icon: Megaphone
             },
         ]
     },

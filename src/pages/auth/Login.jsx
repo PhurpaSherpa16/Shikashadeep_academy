@@ -3,13 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { AlertCircle, ArrowLeft, Loader2 } from 'lucide-react';
+import { AlertCircle, ArrowLeft, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 import { useLogin } from '../../hooks/auth/useLogin';
 
 export default function Login() {
     const {email, setEmail, password, setPassword, error, isLoading, handleLogin} = useLogin()
+    const [typePassword, setTypePassword] = useState("password")
 
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
@@ -44,14 +45,16 @@ export default function Login() {
                         />
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 relative">
                         <div className="flex items-center justify-between">
                             <Label htmlFor="password">Password</Label>
                         </div>
-                        <Input id="password" type="password" placeholder="••••••••" value={password} onChange={(e) =>
-                            setPassword(e.target.value)}
-                            required
-                            className="rounded-lg" />
+                        <div className='relatice flex items-center'>
+                            <Input id="password" type={typePassword} placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} required className="rounded-lg" />
+                            <Button type='button' variant='ghost' size='icon' className='absolute right-2' onClick={() => setTypePassword(typePassword === "password" ? "text" : "password")}>
+                                {typePassword === "password" ? <Eye size={20} /> : <EyeOff size={20} />}
+                            </Button>
+                        </div>
                     </div>
 
                     <Button type="submit" disabled={isLoading}

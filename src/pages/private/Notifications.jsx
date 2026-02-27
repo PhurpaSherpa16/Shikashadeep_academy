@@ -6,23 +6,6 @@ import { useNavigate } from "react-router-dom"
 import { useNotifications } from "../../hooks/notifications/useNotifications"
 
 export default function Notifications() {
-    const { notifications, loading, error } = useNotifications()
-    const navigate = useNavigate()
-
-    const handleNotificationClick = (n) => {
-        if (n.entity === "admission") {
-            navigate(`/admin/admissions`, { state: { selectedId: n.fk } })
-        } else if (n.entity === "blog") {
-            navigate(n.fk ? `/admin/blogs/update/${n.fk}` : `/admin/blogs`)
-        } else if (n.entity === "query") {
-            navigate(`/admin/queries`)
-        } else if (n.entity === "career") {
-            navigate(n.fk ? `/admin/career/view/${n.fk}` : `/admin/career`)
-        }
-    }
-
-    if (loading) return <div className="py-42"><Loading text="Loading notifications..." /></div>
-    if (error) return <div className="p-8"><Error error={error} /></div>
 
     return (
         <div className="p-8 max-w-4xl mx-auto space-y-6 animate_in">
@@ -36,7 +19,7 @@ export default function Notifications() {
                 </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            {/* <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 {notifications.length === 0 ? (
                     <div className="p-12 text-center text-gray-400 italic">
                         No notifications found.
@@ -62,7 +45,7 @@ export default function Notifications() {
                         </div>
                     ))
                 )}
-            </div>
+            </div> */}
         </div>
     )
 }

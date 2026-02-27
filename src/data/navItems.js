@@ -16,6 +16,10 @@ export const navItems = [
         to: '/gallery',
     },
     {
+        label: 'Career',
+        to: '/career',
+    },
+    {
         label: 'About US',
         to: '/about_us#introduction',
     },

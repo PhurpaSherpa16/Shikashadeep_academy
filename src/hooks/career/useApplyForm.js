@@ -52,7 +52,6 @@ export default function useApplyForm() {
         e.preventDefault()
         if (!validate()) return
         setSubmitState("saving")
-        console.log('formData', formData)
         try {
             const data = new FormData()
             Object.keys(formData).forEach(key => {

@@ -88,7 +88,7 @@ export default function PublicNavbar() {
       <div className={`absolute z-20 h-auto w-screen
       transition-all duration-300 shadow-xl 
       ${!menuDisplay ? 'opacity-0 -top-1000' : 'opacity-100  top-20'}`}>
-        <div className={`bg-(--blueDark)/60 backdrop-blur-xl h-screen w-full absolute z-0
+        <div className={`backdrop-blur-xl h-screen w-full absolute z-0
           ${!menuDisplay ? 'opacity-0' : 'opacity-100'} `}/>
         <div className='py-8 relative px-4 md:px-12 z-20 bg-white space-y-4 w-full'>
           {navItems.map((item, index)=>(

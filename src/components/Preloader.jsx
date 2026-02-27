@@ -42,13 +42,7 @@ export default function Preloader({ onComplete }) {
                     ease: "power2.inOut",
                 }, "-=0.5")
                 // Progress Bar Animation
-                .fromTo(progressRef.current, {
-                    scaleX: 0,
-                }, {
-                    scaleX: 1,
-                    duration: 1.5,
-                    ease: "power2.inOut",
-                }, "-=1.5");
+                .fromTo(progressRef.current, { scaleX: 0 }, { scaleX: 1, duration: 1.5, ease: "power2.inOut", }, "-=1.5");
 
         }, containerRef);
 
@@ -66,23 +60,17 @@ export default function Preloader({ onComplete }) {
                     <img src="/logo.svg" alt="logo" className="size-40 rounded-2xl bg-linear-to-tr from-blue-600 to-blue-400 shadow-lg shadow-blue-500/20" />
                 </div>
 
-                <h1
-                    ref={textRef}
-                    className="text-4xl md:text-6xl font-black text-white tracking-tighter text-center uppercase"
-                >
+                <h1 ref={textRef} className="text-4xl md:text-6xl font-black text-white tracking-tighter text-center uppercase">
                     Shikshadeep Academy
                 </h1>
 
                 <div className="mt-12 w-48 md:w-64 h-1 bg-white/5 rounded-full overflow-hidden">
-                    <div
-                        ref={progressRef}
-                        className="h-full w-full bg-linear-to-r from-blue-600 to-blue-400 origin-left"
-                    />
+                    <div ref={progressRef} className="h-full w-full bg-linear-to-r from-blue-600 to-blue-400 origin-left"/>
                 </div>
             </div>
 
-            <p className="absolute bottom-12 text-sm text-gray-500 font-medium tracking-[0.2em] uppercase opacity-50">
-                Pioneering Excellence
+            <p className="absolute bottom-12 text-sm text-gray-500 font-medium  text-center tracking-[0.2em] uppercase opacity-50">
+                Excellence in Education Since 2063 B.S
             </p>
         </div>
     );

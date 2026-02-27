@@ -21,11 +21,11 @@ export default function Index() {
 
   useEffect(() => {
     setShowPreloader(true);
-  }, []);
+  }, [])
 
   const handlePreloaderComplete = () => {
     setShowPreloader(false);
-  };
+  }
 
   useEffect(() => { window.scrollTo(0, 0) }, [])
   const { data } = useGetAllItemsWithCache("school/flash-notice/public")

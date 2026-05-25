@@ -1,16 +1,46 @@
-# React + Vite
+# Shikshadeep Academy Backend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Robust School Management System API
 
-Currently, two official plugins are available:
+A comprehensive, production-ready REST API built using **Node.js**, **Express**, and **Supabase (PostgreSQL)**, powered by **Prisma ORM**. This backend manages everything from student admissions and faculty details to blogs and school galleries.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Goal
+The primary goal of this project is to provide a centralized and efficient backend architecture for Shikshadeep Academy, enabling seamless management of school records, communication, and digital presence. It aims to bridge the gap between administrative operations and digital accessibility.
 
-## React Compiler
+## Objectives
+- **Centralized Data Management**: Provide a single source of truth for all school-related data, including students, faculty, and administrative records.
+- **Operational Efficiency**: Automate routine tasks such as admission processing, job applications, and notification delivery.
+- **Scalable Architecture**: Build a robust API that can easily expand to accommodate new features like student portals or advanced management modules.
+- **Data Integrity & Security**: Ensure secure access to sensitive information through role-based authentication and secure database practices.
+- **Optimized Asset Delivery**: Efficiently manage and serve high-quality media for school blogs and galleries.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## � Use Cases
+- **School Administration**: Managing faculty profiles, posting job vacancies, and reviewing student admission applications through a secure dashboard.
+- **Academic Content Creators**: Publishing blogs, news, and updates to keep the school community informed and engaged.
+- **Prospective Students & Parents**: Submitting admission inquiries, applying for enrollment, and staying updated via flash notices and newsletters.
+- **Job Seekers**: Viewing available vacancies and submitting digital applications directly through the school portal.
+- **Event Organizers**: Managing the school gallery to showcase events, sports, and academic achievements.
 
-## Expanding the ESLint configuration
+## Architecture Overview
+```mermaid
+graph TD
+    Client[Frontend Application] -->|HTTP Requests| API[Express REST API]
+    API -->|Auth| SupabaseAuth[Supabase Auth]
+    API -->|ORM| Prisma[Prisma ORM]
+    Prisma -->|Query| DB[PostgreSQL - Supabase]
+    API -->|Storage| S3[Supabase Storage]
+    API -->|Image Processing| Sharp[Sharp]
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Database**: PostgreSQL (Supabase)
+- **ORM**: Prisma
+- **Storage**: Supabase Storage
+- **Image Processing**: Sharp
+- **Language**: JavaScript (ESM)
+
+
+### Live URL
+https://shikshadeep-academy-school.netlify.app/

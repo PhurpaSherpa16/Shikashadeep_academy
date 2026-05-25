@@ -2,14 +2,11 @@ import API_URL from "../api"
 
 export const login = async (email, password) => {
     const url = `${API_URL}/auth/signin`
-    
     try {
-        const controller = new AbortController()
         const response = await fetch(url, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ email, password }),
-            signal: controller.signal
         });
 
         const responseData = await response.json();
@@ -20,7 +17,7 @@ export const login = async (email, password) => {
 
         return responseData;
     } catch (error) {
-        console.error("Login API failed:", error);
+        console.error("Login API failed:", error)
         throw error;
     }
-};
+}

@@ -4,6 +4,6 @@
 const API_URL =
   import.meta.env.MODE === "development"
     ? "http://localhost:9000"
-    : "https://shikshadeep-adacemy.vercel.app";
-
+    : "https://shikshadeep-adacemy-backend.vercel.app";
+    
 export default API_URL;

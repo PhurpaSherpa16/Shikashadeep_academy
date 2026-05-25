@@ -12,7 +12,7 @@ export const usePostGallery = () => {
         try {
             const response = await postGallery(formData)
             setData(response?.data)
-            console.log(response);
+            console.log('response ',response)
             return response
         } catch (error) {
             console.log('error in usePostGallery: ', error);
